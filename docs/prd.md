@@ -36,6 +36,7 @@ Copy Squad v2 ataca os dois problemas simultaneamente: cada agente carrega **dos
 | 2026-04-26 | 2.0.0-draft.6 | Section 6 (Epic Details) ratificada — 28 stories com ACs | @pm (Morgan) |
 | 2026-04-26 | 2.0.0-draft.7 | Section 7 (pm-checklist) executada + gaps HIGH corrigidos inline | @pm (Morgan) |
 | 2026-04-26 | 2.0.0-draft.8 | Section 8 (Next Steps) preenchida — PRD finalizado | @pm (Morgan) |
+| 2026-04-26 | 2.0.0-draft.9 | Reconciliation pós-Architecture: Story 5.7 (uninstall) adicionada à Section 6 Epic 5 (per ADR-015); total stories: 28 → 29 | @po (Pax) |
 
 ---
 
@@ -183,13 +184,13 @@ Sem unit tests de prompts (prompts são string, não código). Estratégia em 5 
 > Implementar os 3 agentes de orquestração: Copy Master (orquestrador puro, FR3+FR4), Copy Researcher (FR11), Copy Reviewer (checklist + score 0-100, FR12). Inclui matriz de roteamento (FR15), revisão cruzada (FR13) e slash command `/copy` (FR7).
 
 ### Epic 5: Portability, Documentation & E2E Validation
-> Install script (FR8/NFR3), documentação humana, simulação E2E end-to-end e release `v2.0.0`.
+> Install script (FR8/NFR3), uninstall script (Story 5.7 promovida via ADR-015), documentação humana, simulação E2E end-to-end e release `v2.0.0`.
 
 ---
 
 ## 6. Epic Details
 
-> **Total:** 28 stories. Cada story dimensionada para single Claude Code session (junior dev em 2-4h). ACs verificáveis (passa ou falha — sem ambiguidade).
+> **Total:** 29 stories. Cada story dimensionada para single Claude Code session (junior dev em 2-4h). ACs verificáveis (passa ou falha — sem ambiguidade).
 
 ---
 
@@ -640,6 +641,29 @@ so that release seja oficial e auditável.
 6. `LICENSE` (MIT) criado na raiz
 7. Repo home no GitHub renderiza: README + LICENSE + CHANGELOG + tag v2.0.0 visível
 
+#### Story 5.7: Uninstall script + tests
+
+As a copywriter user querendo remover Copy Squad de um projeto,
+I want um script de uninstall que remova apenas arquivos do squad sem tocar em outros agentes ou configurações do usuário,
+so that eu posso desinstalar o squad de forma limpa, com backup automático, sem precisar de `rm -rf` manual e sem arriscar perder customizações de outros agentes.
+
+**Acceptance Criteria:**
+1. `uninstall-copy-squad.sh` executável criado na raiz do repo (`chmod +x`); shebang `#!/usr/bin/env bash`; bash 3.2-compat (ADR-006)
+2. Aceita argumento posicional (path do projeto) OU flag `--user` (remove de `~/.claude/`)
+3. Lista hardcoded de arquivos do Copy Squad é definida no script: 18 agents (`copy-master.md`, `copy-researcher.md`, `copy-reviewer.md`, 15 copywriters), `commands/copy.md`, `agents/_shared/`, e `research/{15 dirs}/`
+4. **NÃO toca** em outros agentes em `.claude/agents/` (fora da lista hardcoded) — usuário pode ter agents customizados
+5. **NÃO toca** em `settings.json` ou `settings.local.json`
+6. Backup automático em `{target}/.claude.uninstall-backup-{YYYY-MM-DDTHHMMSS}/` antes de remover qualquer coisa, contendo todos os arquivos a serem removidos + `_MANIFEST.txt` documentando a operação
+7. Suporta `--dry-run` (imprime plano de remoção sem executar)
+8. Suporta `--force` (skipa confirmação interativa)
+9. Sem `--force`: confirma com usuário (prompt sim/não) antes de remover
+10. `--help` ou `-h`: imprime usage + exemplos
+11. Imprime relatório final: contagem de arquivos removidos + path do backup + comando de rollback
+12. Exit codes: 0 success, 1 path error, 2 nada-pra-desinstalar (squad não detectado), 3 user cancelou
+13. BATS tests em `tests/install/uninstall.bats` cobrindo: (a) clean uninstall em projeto com squad instalado, (b) `--dry-run` não modifica filesystem, (c) `--force` skipa confirmação, (d) path inexistente falha exit 1, (e) projeto sem squad falha exit 2, (f) backup é criado antes de remoção, (g) outros agentes do user permanecem intactos após uninstall, (h) `--help` retorna ajuda
+
+> **Nota:** Story 5.7 promovida ao MVP via Architecture ADR-015. Dependência: Story 5.1 (install script core estabelece convenções compartilhadas como bash 3.2-compat, exit codes, manifest format).
+
 ---
 
 ## 7. Checklist Results Report
@@ -779,7 +803,8 @@ Próximo agente após Architecture: @sm para criar primeira story (1.1 Project s
 
 ## Appendix: Document Status
 
-- **Estado:** ✅ FINALIZADO (8/8 sections)
-- **Versão:** 2.0.0-draft.8
-- **Próxima ação:** invocar `@architect` para Architecture Document
+- **Estado:** ✅ FINALIZADO + reconciliado pós-Architecture (8/8 sections, 29 stories)
+- **Versão:** 2.0.0-draft.9
+- **Próxima ação:** invocar `@sm *draft 1.1` para criar primeira story (Project scaffolding)
+- **Reconciliations aplicadas:** Story 5.7 (uninstall) adicionada via ADR-015 do Architecture
 - **Localização:** `docs/prd.md`
