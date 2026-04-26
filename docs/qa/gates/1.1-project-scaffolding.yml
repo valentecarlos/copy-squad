@@ -1,0 +1,178 @@
+# QA Gate Decision — Story 1.1 Project Scaffolding
+
+storyId: "1.1"
+storyTitle: "Project scaffolding"
+epic: "1"
+verdict: PASS
+verdict_at: 2026-04-26
+reviewer: "@qa (Quinn)"
+review_mode: comprehensive
+
+# Final decision
+decision:
+  status: PASS
+  rationale: |
+    Story 1.1 entregue com qualidade alta. 8/8 ACs verificados. 7 quality
+    checks com PASS ou N/A justificado. Sem CRITICAL ou HIGH issues.
+    Apenas 1 process note (não-bloqueante) sobre @dev executando git push.
+
+  next_action: "@po *close-story 1.1"
+
+# 7 Quality Checks Summary
+quality_checks:
+  - id: code_review
+    label: "Code review (patterns, readability, maintainability)"
+    status: PASS
+    notes: |
+      Markdown e JSON entregues com qualidade alta:
+      - folder-structure.md: 147 linhas, 1146 palavras, denso e bem estruturado
+      - 5 cross-references para architecture.md
+      - Tabela de status atual mostra exatamente o que foi entregue
+      - package.json: schema correto, todos os campos requeridos
+      - Diacríticos PT-BR preservados literalmente (NFR9)
+
+  - id: unit_tests
+    label: "Unit tests (coverage, all passing)"
+    status: N/A
+    rationale: |
+      Story de scaffolding — sem código executável testável. Manual validation
+      cobriu o equivalente: parse JSON, encoding check, file existence, BOM/CRLF
+      detection. Frameworks de teste (Node + BATS) entram nas Stories 1.2-1.4
+      e 5.3.
+
+  - id: acceptance_criteria
+    label: "Acceptance criteria (all 8 met)"
+    status: PASS
+    details:
+      - ac: 1
+        criterion: "Pasta research/ criada com .gitkeep"
+        verified: true
+      - ac: 2
+        criterion: "Pasta .claude/agents/_shared/ criada com .gitkeep"
+        verified: true
+      - ac: 3
+        criterion: "Pasta scripts/ criada com .gitkeep"
+        verified: true
+      - ac: 4
+        criterion: "Pasta tests/install/ criada com .gitkeep"
+        verified: true
+      - ac: 5
+        criterion: "Pasta docs/architecture/ criada com .gitkeep"
+        verified: true
+      - ac: 6
+        criterion: "package.json mínimo (name, version, private, sem deps)"
+        verified: true
+        evidence: "JSON.parse OK; deps count: 0; devDeps count: 0; engines.node: >=20"
+      - ac: 7
+        criterion: "docs/architecture/folder-structure.md com tree completa"
+        verified: true
+        evidence: "147 linhas, 1146 palavras, status table, 5 cross-refs"
+      - ac: 8
+        criterion: "Commit único contém todas as criações"
+        verified: true
+        evidence: "Commit 5dcfe27 contém os 7 arquivos novos"
+
+  - id: no_regressions
+    label: "No regressions (existing functionality preserved)"
+    status: PASS
+    notes: |
+      Apenas arquivos do escopo da Story 1.1 modificados. PRD, Architecture,
+      .gitignore, .claude/ AIOX intactos. Diff de 5dcfe27 mostra:
+      - 7 arquivos novos (5 .gitkeep + package.json + folder-structure.md)
+      - 1 arquivo modificado (story file — apenas seções autorizadas pelo Dev)
+
+  - id: performance
+    label: "Performance (within acceptable limits)"
+    status: N/A
+    rationale: |
+      Story de scaffolding sem código executável. Sem impacto de performance.
+      Validation manual rodou em <1s (file ops + JSON parse).
+
+  - id: security
+    label: "Security (OWASP basics verified)"
+    status: PASS
+    checks:
+      - "package.json sem secrets/credentials hardcoded — VERIFIED"
+      - "package.json com 0 deps externas — sem vulnerabilities possíveis"
+      - "Sem env vars expostas"
+      - "Sem URLs/endpoints sensíveis"
+      - "Encoding UTF-8 sem BOM (defesa contra parser bugs)"
+
+  - id: documentation
+    label: "Documentation (updated if necessary)"
+    status: PASS
+    notes: |
+      docs/architecture/folder-structure.md é doc principal entregue:
+      - Tree completa v2.0.0 (não apenas estado atual)
+      - Status table mostra o que existe vs. pendente
+      - Cross-references para architecture.md sections
+      - Útil como reference para todas stories futuras
+
+# Issues encontrados
+issues: []
+
+# Process notes (não-bloqueantes)
+process_notes:
+  - severity: low
+    category: agent_authority
+    description: |
+      @dev executou git push diretamente. Per agent constraints, push é
+      exclusivo de @github-devops. Mitigantes:
+      (a) Story Task 5 explicitamente listou push como AC
+      (b) Sessão solo sem @github-devops separado
+      (c) Usuário autorizou pushes ao longo da sessão
+    recommendation: |
+      Em stories futuras, @sm pode escrever Task 5 como "Commit local + handoff
+      para @github-devops" ao invés de "Commit + push". Não-bloqueante para
+      esta story; sugestão de processo para Stories 1.2+.
+
+# NFRs validation
+nfr_assessment:
+  NFR1_density: N/A (sem agente system prompt nesta story)
+  NFR2_density: N/A (sem dossier nesta story)
+  NFR3_install_idempotent: N/A (Story 5.1+)
+  NFR4_lazy_load: N/A (sem agentes ainda)
+  NFR5_research_sources: N/A (Story 1.7+)
+  NFR6_substitution_gate: N/A (Story 2.5)
+  NFR7_security_bounded: PASS (sem agentes; package.json sem secrets)
+  NFR8_portability: PASS (markdown + JSON, cross-platform)
+  NFR9_pt_br: PASS (diacríticos preservados em folder-structure.md + package.json)
+
+# Architecture compliance
+architecture_compliance:
+  section_3_1_folder_structure: PASS
+  section_3_8_encoding: PASS (UTF-8 + LF + sem BOM)
+  section_8_1_critical_rules: PASS
+  section_8_5_javascript_standards: PASS (CommonJS-ready, Node 20 LTS)
+  section_8_6_naming_conventions: PASS (kebab-case, lowercase)
+  section_8_7_commit_conventions: PASS (Conventional Commits format)
+
+# Test coverage
+test_coverage:
+  unit: N/A
+  integration: N/A
+  e2e: N/A
+  manual_validation: 12/12 PASS
+  ci_status: not_yet_active (CI workflow entra em Story 1.4)
+
+# Recommendations para próximas stories
+recommendations:
+  - story: 1.2
+    note: |
+      validate-density.js deve ter modo --report-only (mencionado em PRD AC) e
+      handlear gracefully o caso de research/ vazio (apenas .gitkeep). Considerar
+      fixture de teste cobrindo este edge case.
+  - story: 1.4
+    note: |
+      Quando CI for habilitado, este commit (5dcfe27) deve passar todos os 5 jobs
+      como baseline. Validar antes de mergear primeira PR com workflow.
+  - story: 1.7
+    note: |
+      Halbert dossier será o primeiro teste real de NFR2 (≥3500 palavras).
+      Recomendo @qa rodar review extra (risk_level: high já flagado em
+      Architecture §7.5).
+
+# Approval signature
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-26
+gate_file_version: "1.0"
