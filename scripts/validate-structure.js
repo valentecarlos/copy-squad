@@ -166,22 +166,25 @@ function validateAgent(filePath, content, allNames) {
 }
 
 /**
- * Lista todos os arquivos .md em .claude/agents/ (incluindo _shared/).
+ * Lista todos os arquivos .md DIRETAMENTE em .claude/agents/.
+ *
+ * IMPORTANTE: NÃO inclui .claude/agents/_shared/ — arquivos em _shared/
+ * são knowledge base (frameworks, glossário) e NÃO seguem schema de agent
+ * (sem name, type, tools, etc.). Eles são validados separadamente por
+ * validate-density.js (NFR1) e encoding-check.
+ *
+ * @see Architecture §3.1 (folder structure) + §3.5 (shared knowledge base format)
  */
 function listAgentFiles(root) {
-  const dirs = [
-    path.join(root, '.claude/agents'),
-    path.join(root, '.claude/agents/_shared'),
-  ];
-  const files = [];
+  const agentsDir = path.join(root, '.claude/agents');
+  if (!fs.existsSync(agentsDir)) return [];
 
-  for (const dir of dirs) {
-    if (!fs.existsSync(dir)) continue;
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== '.gitkeep') {
-        files.push(path.join(dir, entry.name));
-      }
+  const files = [];
+  const entries = fs.readdirSync(agentsDir, { withFileTypes: true });
+  for (const entry of entries) {
+    // Apenas arquivos .md DIRETAMENTE em agents/ (não recursivo, não _shared/)
+    if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== '.gitkeep') {
+      files.push(path.join(agentsDir, entry.name));
     }
   }
   return files;
