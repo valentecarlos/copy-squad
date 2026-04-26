@@ -1,0 +1,233 @@
+# QA Gate Decision — Story 1.2 Density Validation Script
+
+storyId: "1.2"
+storyTitle: "Density validation script"
+epic: "1"
+verdict: PASS
+verdict_at: 2026-04-26
+reviewer: "@qa (Quinn)"
+review_mode: comprehensive
+
+decision:
+  status: PASS
+  rationale: |
+    Story 1.2 entregue com qualidade alta. 8/8 ACs verificados via 4 cenários
+    de validation manual + 5 edge cases adicionais explorados pelo QA. Sem
+    CRITICAL/HIGH issues. 1 process note sobre bonus feature (--root flag)
+    adicionada não-spec'd, mas com justificativa válida e flagada pelo Dev em
+    Completion Notes.
+
+  next_action: "@po *close-story 1.2"
+
+quality_checks:
+  - id: code_review
+    label: "Code review (patterns, readability, maintainability)"
+    status: PASS
+    notes: |
+      validate-density.js (~210 linhas) demonstra qualidade alta:
+      - 'use strict' + CommonJS + Node 20+ (ADR-014, ADR-021)
+      - 10 funções pequenas e bem-nomeadas (parseFrontmatter, countWords,
+        getStatus, listMarkdownFiles, listSubdirs, validateAgents,
+        validateDossiers, renderAgentsTable, renderDossiersTable, main)
+      - Constants UPPER_SNAKE (NFR1_MIN_WORDS, NFR2_MIN_WORDS, WARN_MARGIN)
+      - Functions camelCase
+      - JSDoc-style comments em todas as funções públicas
+      - Error handling: try/catch em parseFrontmatter; main() catch retorna exit 2
+      - Zero dependencies além de js-yaml (única dep autorizada per ADR-021)
+      - node --check passa sem erro
+      - Sem var, único const/let
+      - Single quotes consistente
+      - 2-space indent (Architecture §8.5)
+      - Module structure clean: helpers → validators → renderers → main
+
+  - id: unit_tests
+    label: "Unit tests (coverage, all passing)"
+    status: PARTIAL
+    notes: |
+      Sem unit tests (Jest/Vitest) implementados — story spec diz "manual
+      testing contra fixtures cumpre o gate". Aceito por agora.
+      Fixtures cobrem 4 cenários principais. Edge cases adicionais (YAML
+      mal-formado, file sem frontmatter, dossier vazio) testados pelo QA
+      ad-hoc — todos passam.
+      RECOMENDAÇÃO POST-MVP: adicionar suite Jest/Vitest em v2.1 cobrindo
+      countWords, parseFrontmatter, getStatus.
+
+  - id: acceptance_criteria
+    label: "Acceptance criteria (8 ACs)"
+    status: PASS
+    details:
+      - ac: 1
+        criterion: "Script executável via node scripts/validate-density.js"
+        verified: true
+        evidence: "Smoke test exit 0; npm run validate:density funciona"
+      - ac: 2
+        criterion: "Lê .claude/agents/*.md e _shared/*.md, body excludindo YAML"
+        verified: true
+        evidence: "Bonus --root scenario PASS lê sample-agent.md, conta 705 words excluindo frontmatter"
+      - ac: 3
+        criterion: "Lê research/{nome}/*.md agregados"
+        verified: true
+        evidence: "research/halbert/ scenario soma 4 arquivos = 3800 words"
+      - ac: 4
+        criterion: "Exit 1 + mensagem clara em agent <600 palavras"
+        verified: true
+        evidence: "FAIL fixture: 405 palavras → '❌ ... 405 palavras (esperado ≥600)'"
+      - ac: 5
+        criterion: "Exit 1 + mensagem clara em dossier <3500 palavras"
+        verified: true
+        evidence: "FAIL fixture: 3024 palavras → '❌ research/halbert/ — 3024 palavras (esperado ≥3500)'"
+      - ac: 6
+        criterion: "Output markdown table legível"
+        verified: true
+        evidence: "Tables renderizam corretamente com colunas Arquivo|Palavras|Limite|Status; ícones ✅⚠️❌"
+      - ac: 7
+        criterion: "Flag --report-only sempre exit 0"
+        verified: true
+        evidence: "FAIL fixture com --report-only retorna exit 0 mesmo com 2 FAILs"
+      - ac: 8
+        criterion: "Fixtures em tests/fixtures/density/ (PASS + FAIL × agents + research)"
+        verified: true
+        evidence: |
+          - agents-pass: 705 words ✅
+          - agents-fail: 405 words ✅
+          - research-pass: 3800 words total (4 files) ✅
+          - research-fail: 3000 words total (4 files) ✅
+
+  - id: no_regressions
+    label: "No regressions"
+    status: PASS
+    notes: |
+      git diff aeb7ec1..ada1723 não mostra alterações em arquivos da Story 1.1:
+      - docs/architecture/folder-structure.md: untouched
+      - docs/prd.md: untouched
+      - docs/architecture.md: untouched
+      - .gitignore: untouched
+      - .claude/: untouched (apenas leitura pelo script)
+      Apenas package.json modificado intencionalmente (deps + version + scripts).
+
+  - id: performance
+    label: "Performance"
+    status: PASS
+    notes: |
+      Script executa <100ms contra repo atual (vazio). Cenários FAIL/PASS com
+      fixtures executam <200ms. Recursive readdir não-otimizado mas adequado
+      para escopo (~60 arquivos esperados em v2.0.0). Sem performance concerns.
+
+  - id: security
+    label: "Security (OWASP basics)"
+    status: PASS
+    checks:
+      - "package.json sem secrets/credentials hardcoded — VERIFIED"
+      - "js-yaml@4.1.1 instalada com integrity (SRI) — license MIT — package oficial nodeca/js-yaml"
+      - "Script não executa subprocesses (child_process não importado)"
+      - "Script não faz network calls (sem http/https/fetch)"
+      - "Script só lê filesystem; sem write/delete (read-only)"
+      - "Path traversal via --root flag: limitada a paths que usuário tem read access; não escala privilégios"
+      - "yaml.load() em vez de yaml.safeLoad() — atualmente js-yaml v4 já é safe by default (não permite deserialize de tags arbitrárias). VERIFIED em docs js-yaml."
+
+  - id: documentation
+    label: "Documentation"
+    status: PASS
+    notes: |
+      - JSDoc header em validate-density.js documenta usage + source refs
+      - Inline comments em todas as funções
+      - Story file Dev Agent Record completo (Agent Model + Debug Log + 7
+        Completion Notes + File List com 14 files)
+      - Bonus feature (--root) flagada em Completion Note #1 com justificativa
+      - npm script validate:density adicionado para discoverability
+
+issues: []
+
+process_notes:
+  - severity: low
+    category: scope_creep
+    description: |
+      @dev adicionou bonus feature `--root <path>` flag não-spec'd na story.
+      Dev flagou proativamente em Completion Note #1 com justificativa
+      ("não estava na story spec mas é low-risk e melhora testability").
+    assessment: |
+      Per AIOX rules: "Don't add features, refactor, or introduce abstractions
+      beyond what the task requires." Strictly speaking, --root é scope creep.
+
+      Mitigantes que tornam aceitável:
+      (a) Feature é low-risk (apenas muda projectRoot variable)
+      (b) Habilitou validation contra fixtures isoladas, melhorou cobertura de testes
+      (c) Dev flagou transparentemente (não escondeu)
+      (d) QA usou a feature pra rodar checks adicionais
+    recommendation: |
+      Aceitar para esta story. Em stories futuras, recomenda-se que Dev
+      pergunte ao @sm/@po antes de adicionar features bonus, OU @sm pode
+      autorizar bonus features explicitamente na spec (Tasks "if time allows").
+
+  - severity: low
+    category: agent_authority
+    description: |
+      @dev executou git push diretamente. Mesma situação da Story 1.1.
+    recommendation: |
+      Já documentada como decisão de processo solo workflow. Sem ação adicional.
+
+nfr_assessment:
+  NFR1_density: PASS (script implementa lógica correta — verificado via fixtures)
+  NFR2_density: PASS (script implementa lógica correta — verificado via fixtures)
+  NFR3_install_idempotent: N/A (Story 5.1+)
+  NFR4_lazy_load: N/A
+  NFR5_research_sources: N/A (Story 1.7+)
+  NFR6_substitution_gate: N/A
+  NFR7_security_bounded: PASS (script read-only, sem network, sem subprocess)
+  NFR8_portability: PASS (Node 20+ + bash 3.2-compat shebang)
+  NFR9_pt_br: PASS (output messages em PT-BR; diacríticos preservados em fixtures)
+
+architecture_compliance:
+  section_3_8_encoding: PASS (UTF-8 + LF + sem BOM em todos os arquivos novos)
+  section_5_3_validation_density: PASS (implementa todas as features especificadas: NFR1+NFR2 limits, markdown table output, --report-only, exit codes 0/1/2)
+  section_8_1_critical_rules: PASS
+  section_8_5_javascript_standards: PASS (CommonJS, single quotes, 2-space, const/let only, no var, fs/path stdlib, js-yaml única dep)
+  section_8_6_naming_conventions: PASS (script kebab-case, functions camelCase, constants UPPER_SNAKE)
+  section_8_7_commit_conventions: PASS (feat(scripts): Conventional Commits format)
+  ADR_014_commonjs: PASS (require/module.exports, sem ESM)
+  ADR_021_dependencies: PASS (js-yaml@^4.1.0 única dep externa, Node 20+ engine)
+
+test_coverage:
+  unit: 0% (sem unit tests; spec da story não exigiu — recomendação post-MVP em v2.1)
+  integration: N/A
+  manual_validation: 4/4 cenários PASS + 5 edge cases adicionais PASS pelo QA
+  ci_status: not_yet_active (CI workflow entra em Story 1.4 — usará este script)
+
+edge_cases_validated:
+  - case: "YAML frontmatter mal-formado"
+    handling: "Lança Error('YAML parse error: ...') + main() catch → exit 2"
+    status: PASS
+  - case: "File sem YAML frontmatter"
+    handling: "Conta todas palavras como body"
+    status: PASS
+  - case: "Pasta research/{nome}/ vazia (apenas .gitkeep)"
+    handling: "Skip silently — 'Nenhum dossier encontrado'"
+    status: PASS
+  - case: "Dossier abaixo de 3500 mas com 4 arquivos"
+    handling: "FAIL com mensagem clara apontando contagem total"
+    status: PASS
+  - case: "Repo completamente vazio (sem agents nem research)"
+    handling: "exit 0 com 'Nenhum agente/dossier encontrado'"
+    status: PASS
+
+recommendations:
+  - story: 1.3
+    note: |
+      validate-structure.js seguirá o mesmo pattern (CommonJS, js-yaml, Node
+      stdlib only). Dev pode reutilizar parseFrontmatter() helper de validate-
+      density.js — considerar extrair para `scripts/lib/markdown-utils.js` se
+      Story 1.3 também precisar. Decisão de extract fica para Dev/Architect.
+  - story: 1.4
+    note: |
+      CI workflow vai chamar `node scripts/validate-density.js` (não --report-only)
+      para falhar PRs com agentes/dossiers abaixo do limite. Validar que script
+      retorna exit 1 corretamente em GitHub Actions runner.
+  - story: 1.7
+    note: |
+      Quando Halbert dossier landar (≥3500 palavras), validate-density.js já
+      estará pronto pra validar. Story 1.7 será o primeiro real-world test do
+      script (até agora só fixtures).
+
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-26
+gate_file_version: "1.0"
