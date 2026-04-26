@@ -1,0 +1,14 @@
+{
+  "name": "copy-squad",
+  "version": "2.0.0-draft.1",
+  "private": true,
+  "description": "Copy Squad — 15 copywriters lendários como subagentes Claude Code, orquestrados via Copy Master",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valentecarlos/copy-squad"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
