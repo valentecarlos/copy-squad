@@ -1,6 +1,6 @@
 {
   "name": "copy-squad",
-  "version": "2.0.0-draft.1",
+  "version": "2.0.0-draft.2",
   "private": true,
   "description": "Copy Squad — 15 copywriters lendários como subagentes Claude Code, orquestrados via Copy Master",
   "repository": {
@@ -10,5 +10,11 @@
   "license": "MIT",
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "scripts": {
+    "validate:density": "node scripts/validate-density.js"
   }
 }
