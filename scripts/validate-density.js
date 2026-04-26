@@ -22,7 +22,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const yaml = require('js-yaml');
+const { parseFrontmatter, countWords, listMarkdownFiles, listSubdirs } = require('./lib/markdown-utils');
 
 const NFR1_MIN_WORDS = 600;   // agent system prompt
 const NFR2_MIN_WORDS = 3500;  // research dossier (sum of *.md files)
@@ -35,68 +35,12 @@ const rootIdx = args.indexOf('--root');
 const projectRoot = rootIdx >= 0 ? path.resolve(args[rootIdx + 1]) : process.cwd();
 
 /**
- * Separa YAML frontmatter (entre delimitadores `---`) do body markdown.
- * Retorna { frontmatter, body }. Se não houver frontmatter, frontmatter=null e body=content.
- */
-function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (match) {
-    let frontmatter = null;
-    try {
-      frontmatter = yaml.load(match[1]);
-    } catch (err) {
-      throw new Error(`YAML parse error: ${err.message}`);
-    }
-    return { frontmatter, body: match[2] };
-  }
-  return { frontmatter: null, body: content };
-}
-
-/**
- * Conta palavras: split por whitespace, filtra strings vazias.
- */
-function countWords(text) {
-  if (!text) return 0;
-  return text.trim().split(/\s+/).filter(Boolean).length;
-}
-
-/**
  * Determina status: PASS (≥ limit), WARN (entre limit e limit+10%), FAIL (< limit).
  */
 function getStatus(words, limit) {
   if (words < limit) return 'FAIL';
   if (words < limit * (1 + WARN_MARGIN)) return 'WARN';
   return 'PASS';
-}
-
-/**
- * Recursive directory listing (Node stdlib only — sem dep glob).
- * Retorna array de full paths para arquivos com extensão .md (exclui .gitkeep).
- */
-function listMarkdownFiles(dir) {
-  const results = [];
-  if (!fs.existsSync(dir)) return results;
-
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      results.push(...listMarkdownFiles(full));
-    } else if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== '.gitkeep') {
-      results.push(full);
-    }
-  }
-  return results;
-}
-
-/**
- * Lista subdirectories diretos (não-recursivo).
- */
-function listSubdirs(dir) {
-  if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir, { withFileTypes: true })
-    .filter(e => e.isDirectory())
-    .map(e => path.join(dir, e.name));
 }
 
 /**
