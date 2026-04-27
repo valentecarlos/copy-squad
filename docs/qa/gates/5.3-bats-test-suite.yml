@@ -1,0 +1,51 @@
+storyId: "5.3"
+storyTitle: "BATS test suite"
+epic: "5"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    tests/install/install.bats criado com 10 test cases (cobre 7 obrigatórios PRD AC2 + 3 bonus).
+
+    Local run: bats 1.13.0 → 10/10 PASS.
+
+    AC2 coverage:
+    (a) install em path limpo — Test 1 ✅
+    (b) conflito sem --force exit 2 — Test 2 ✅
+    (c) --force cria backup correto — Test 3 ✅
+    (d) --user instala em ~/.claude/ (testado via HOME override) — Test 4 ✅
+    (e) --dry-run não modifica filesystem — Test 5 ✅
+    (f) path inexistente exit 1 — Test 6 ✅
+    (g) --help retorna ajuda — Test 7 ✅
+
+    Bonus tests:
+    (h) -h short flag — Test 8 ✅
+    (i) unknown flag exit 1 — Test 9 ✅
+    (j) sem args exit 1 com hint — Test 10 ✅
+
+    CI integration: .github/workflows/validate.yml expandido com job bats-install-tests usando bats-core/bats-action@3.0.0 + bats 1.11.0.
+    CRLF detection expandido para incluir *.bats.
+
+    4/5 ACs PASS local; AC5 (CI verde) pending push.
+  next_action: "@devops *push, depois Story 5.4 (CLAUDE.md)"
+
+quality_checks:
+  code_review: "PASS — bats idiomático, setup/teardown corretos, isolation via TMPDIR"
+  tests: "PASS — 10/10 local + CI integration adicionada"
+  acceptance_criteria: "4/5 PASS local | AC5 pending push"
+  no_regressions: "PASS — outros 4 jobs CI inalterados"
+  performance: "PASS"
+  security: "PASS — no eval, paths quoted, isolation"
+  documentation: "PASS — header comment + AC mapping"
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+  expected_jobs: 5  # 4 prévios + bats-install-tests novo
+
+issues: []
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27

@@ -76,8 +76,23 @@ jobs:
         shell: bash
         run: |
           # Look for CRLF in tracked text files (excluding .git)
-          if find .claude research docs scripts tests -type f \( -name '*.md' -o -name '*.yml' -o -name '*.yaml' -o -name '*.js' -o -name '*.sh' -o -name '*.json' \) 2>/dev/null | xargs grep -lI $'\r$' 2>/dev/null | grep -v node_modules; then
+          if find .claude research docs scripts tests -type f \( -name '*.md' -o -name '*.yml' -o -name '*.yaml' -o -name '*.js' -o -name '*.sh' -o -name '*.json' -o -name '*.bats' \) 2>/dev/null | xargs grep -lI $'\r$' 2>/dev/null | grep -v node_modules; then
             echo "CRLF line endings detected — failing CI"
             exit 1
           fi
           echo "No CRLF detected"
+
+  bats-install-tests:
+    name: BATS — install script tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup BATS
+        uses: bats-core/bats-action@3.0.0
+        with:
+          bats-version: 1.11.0
+      - name: Run BATS install tests
+        shell: bash
+        run: |
+          chmod +x install-copy-squad.sh
+          bats tests/install/
