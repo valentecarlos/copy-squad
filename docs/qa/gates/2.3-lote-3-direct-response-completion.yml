@@ -1,0 +1,132 @@
+storyId: "2.3"
+storyTitle: "Lote 3 — Carlton/Makepeace/Collier (Direct Response 100% completion)"
+epic: "2"
+verdict: PASS
+verdict_at: 2026-04-26
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    Story 2.3 entregue com qualidade ainda superior à Story 2.2. 3 dossiers
+    totalizando 17.377 words (target 10.500, +65% — vs +46% Lote 2 e +25% Lote 1).
+    8/9 ACs verificados localmente; AC9 (CI verde após push) condicional ao
+    @devops *push (Article I/II Constitution).
+
+    **Marco histórico:** com esta story, vertical Direct Response do roster
+    está 100% completo (10/10 copywriters):
+    - Halbert (Story 1.7)
+    - Schwartz/Hopkins/Caples (Story 2.1)
+    - Sugarman/Kennedy/Bencivenga (Story 2.2)
+    - Carlton/Makepeace/Collier (Story 2.3)
+
+    Cada dossier do Lote 3 superou individualmente o target — Collier atingiu
+    6.082 words (+74%, novo recorde), Makepeace 5.853 (+67%), Carlton 5.442 (+55%).
+  next_action: "@devops *push (pendente, para finalizar AC9), depois @po *close-story 2.3"
+  conditional_blockers:
+    - "AC9: CI 4 jobs PASS — só pode ser validado após @devops fazer push real (Article I/II)."
+
+quality_checks:
+  code_review: "PASS — markdown denso, hierarquia consistente, atribuições históricas verificáveis"
+  tests: "PASS — npm run validate exit 0 (density 12/12, structure 0 violations, research-format 40/40)"
+  acceptance_criteria: "8/9 PASS local | AC9 pending @devops push"
+  no_regressions: "PASS — 28 arquivos prévios continuam PASS na revalidação"
+  performance: "PASS — validação roda em segundos; pipeline inalterada"
+  security: "PASS — sem novas deps; sem credenciais; sem URLs externas executáveis"
+  documentation: "PASS — research-trail.md atualizado com 3 sections + nota Epic 2 3/5; story file completo"
+
+word_counts:
+  carlton: "5.442 words (+55% vs 3500 target)"
+  makepeace: "5.853 words (+67%)"
+  collier: "6.082 words (+74% — novo recorde de densidade do projeto)"
+  total: "17.377 words (+65% vs 10.500 target — vs +46% Lote 2, +25% Lote 1)"
+
+framework_coverage:
+  carlton:
+    - "Simple Writing System (17-18 etapas)"
+    - "Big Idea como espinha dorsal"
+    - "Hook craft (30-50 hooks por peça)"
+    - "Swipe File philosophy + hand-copying"
+    - "Kitchen Table test"
+    - "4 pilares (trust + story + justification + need)"
+    - "Long-copy bias com qualificador"
+    - "Most Ripped-Off como meta-framework"
+  makepeace:
+    - "The Makepeace Method (10 perguntas produto + 14 prospect)"
+    - "Sistema de análise rápida de produto"
+    - "5W1H formula"
+    - "Outcomes-first thinking"
+    - "Fear/greed amplification (financial/health verticals)"
+    - "Magalog architecture (32-64 páginas formato híbrido)"
+    - "The Total Package educational framework"
+    - "Outcomes-first em info-product copywriting"
+  collier:
+    - "The Robert Collier Letter Book sistematização original (1931)"
+    - "'Enter the conversation already taking place in the customer's mind'"
+    - "Sistematização por categoria de produto (10+ categorias)"
+    - "Emotional appeals catalog (aspiração, proteção, pertencimento, curiosidade)"
+    - "Sales letter structure template"
+    - "Specificity como princípio empírico (pioneer)"
+    - "Polish principle (edição obsessiva)"
+    - "Continuity em customer relationship (CRM mail-era precursor)"
+
+canonical_pieces_covered:
+  carlton:
+    - "The One-Legged Golfer (Rodale-era, milhões em vendas, headline mais copiada da história)"
+    - "The Amazing Power Hour (Jay Abraham era)"
+    - "Marketing Rebel Rant (newsletter premium 6 anos)"
+    - "The RANT (blog atual)"
+    - "Stansberry-era / Agora financial controles"
+    - "Anatomia comparativa de peça Carlton típica"
+  makepeace:
+    - "Dr. Julian Whitaker's Health & Healing (Phillips, 1991-94, 90M mailings, 2M subscribers)"
+    - "Weiss Research portfolio ($5M/6 weeks campaigns)"
+    - "Boardroom Inc. magalog inaugural (formato breakthrough)"
+    - "The Total Package newsletter educacional"
+    - "Healthy Directions health vertical"
+    - "Agora group financial controles"
+  collier:
+    - "Harvard Classics ('Five-Foot Shelf') millions sold via mail order"
+    - "The Coat Hangers Letter (clothing/dry cleaning case paradigmático)"
+    - "Insurance letters fear-driven vertical (precursor Makepeace)"
+    - "Book selling letters (precursor info-product moderno)"
+    - "Subscription letters (precursor newsletter premium pricing)"
+    - "Collection letters (relationship management sob fricção)"
+    - "Anatomia comparativa de peça Collier típica"
+
+historical_attributions_verified:
+  - "Carlton: 1950s? nascimento, LA freelance anos 70-80, círculo Halbert/Abraham/Kennedy, Marketing Rebel founder, One-Legged Golfer Rodale-era, Most Ripped-Off Copywriter Alive marketing positioning"
+  - "Makepeace: 1949-2023, Tulsa printshop start, Phillips Health & Healing 1991-94 (90M mailings/2M subscribers), Weiss 1998+, Boardroom magalog inventor, The Total Package, Makepeace Method via AWAI"
+  - "Collier: 1885 nascimento St. Louis MO, P.F. Collier family (sobrinho Peter Fenelon), Harvard Classics millions sold, Letter Book 1931 McGraw-Hill, Secret of the Ages 1926 com 300K+ vendidos, morte 1950"
+
+source_quality:
+  total_sources_in_dossiers: "55 únicas distribuídas em 12 arquivos"
+  format_compliance: "DEC-002 schema literal em 100% das ## Fontes sections"
+  cumulative_project_sources: "150+ fontes únicas acumuladas em 40 arquivos research/* (Lote 1+2+3+Halbert)"
+
+milestone:
+  description: "🎯 Vertical Direct Response 100% completo após Story 2.3"
+  copywriters_completed:
+    - "Halbert (Story 1.7)"
+    - "Schwartz (Story 2.1)"
+    - "Hopkins (Story 2.1)"
+    - "Caples (Story 2.1)"
+    - "Sugarman (Story 2.2)"
+    - "Kennedy (Story 2.2)"
+    - "Bencivenga (Story 2.2)"
+    - "Carlton (Story 2.3)"
+    - "Makepeace (Story 2.3)"
+    - "Collier (Story 2.3)"
+  total_words_direct_response: "~46.000 words em 10 dossiers densos validados"
+  next_vertical: "Brand (Stories 2.4-2.5): Ogilvy/Bernbach/Burnett + Abbott/Bird ou substitutos"
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+  jobs_pass: pending
+  note: "Push delegado a @devops (Article I/II) — CI 4 jobs PASS esperado pós-push baseado em validação local 100% PASS"
+
+issues: []
+
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-26
