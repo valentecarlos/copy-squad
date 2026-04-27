@@ -1,0 +1,59 @@
+storyId: "1.6"
+storyTitle: "Shared glossary"
+epic: "1"
+verdict: PASS
+verdict_at: 2026-04-26
+reviewer: "@qa (Quinn)"
+review_mode: comprehensive
+
+decision:
+  status: PASS
+  rationale: |
+    Story 1.6 entregue com qualidade alta. 41 termos (37% acima target ≥30),
+    2408 words (20% acima target ≥2000), ordenação alfabética estrita,
+    cross-references ricos (pares antônimos, refs para frameworks.md, refs
+    internos). CI run real 24970388113 SUCCESS.
+  next_action: "@po *close-story 1.6"
+
+quality_checks:
+  - id: code_review
+    status: PASS
+    notes: "Markdown bem estruturado; convenção EN/PT-BR explícita na intro e aplicada consistentemente."
+  - id: tests
+    status: PASS
+    notes: "CI run 24970388113 SUCCESS (3 jobs)."
+  - id: acceptance_criteria
+    status: PASS
+    notes: |
+      AC 1 ✅ glossario.md criado
+      AC 2 ✅ 41 termos (target ≥30, +37%)
+      AC 3 ✅ Definição + Sinônimos + Uso típico em cada
+      AC 4 ✅ 2408 words (target ≥2000, +20%)
+      AC 5 ✅ Ordenação alfabética estrita A→Z
+      AC 6 ✅ Cross-references ricos
+      AC 7 ✅ PT-BR nativo + termos EN preservados
+      AC 8 ✅ CI green
+  - id: no_regressions
+    status: PASS
+  - id: performance
+    status: PASS
+  - id: security
+    status: PASS
+  - id: documentation
+    status: PASS
+
+issues: []
+
+term_coverage:
+  prd_required_terms: 28
+  prd_terms_covered: 28
+  prd_coverage_pct: 100
+  extra_terms_added: 13
+  total_terms: 41
+
+remote_evidence:
+  workflow_run_id: 24970388113
+  conclusion: success
+
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-26
