@@ -17,12 +17,12 @@ decision:
 
     🎯 Marco: Epic 4 opens. Slash command é entry point primário para
     o squad. Funcionará automaticamente quando Story 4.5 entregar Copy Master.
-  next_action: "@devops *push, depois Story 4.2 (Copy Researcher agent)"
+  next_action: "Story 4.2 (Copy Researcher agent)"
 
 quality_checks:
   code_review: "PASS — markdown limpo, frontmatter YAML válido"
   tests: "PASS — npm run validate exit 0"
-  acceptance_criteria: "7/8 PASS local | AC8 pending push"
+  acceptance_criteria: "8/8 PASS (AC8 confirmada via CI #25008792757)"
   no_regressions: "PASS"
   performance: "PASS — command file leve (~3KB)"
   security: "PASS"
@@ -40,9 +40,14 @@ dependency_resolution:
   validation: "Command file é estruturalmente válido + frontmatter parseable + body referencing @copy-master funcionará automaticamente quando 4.5 entregar"
 
 remote_evidence:
-  workflow_run_id: null
-  conclusion: pending
-  jobs_pass: pending
+  workflow_run_id: 25008792757
+  conclusion: success
+  jobs_pass: 4
+  jobs:
+    - "UTF-8 + LF + no BOM: success"
+    - "Validate density (NFR1 + NFR2): success"
+    - "Validate research source format (DEC-002): success"
+    - "Validate YAML structure: success"
 
 issues: []
 approved_by: "@qa (Quinn)"
