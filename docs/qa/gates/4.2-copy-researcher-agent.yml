@@ -1,0 +1,44 @@
+storyId: "4.2"
+storyTitle: "Copy Researcher agent"
+epic: "4"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    .claude/agents/copy-researcher.md criado (1.055 words body, +76% vs 600 target).
+    YAML frontmatter completo: type=researcher, specialty=support, tools=[WebSearch,
+    WebFetch, Read, Write, Grep], research_path=research/copy-researcher/, language=pt-BR.
+    Output structure obrigatória 7 seções definida (Avatar/Dores/Desejos/Linguagem
+    nativa/Objeções/Concorrentes/Provas sociais).
+    7/8 ACs PASS local; AC8 pending push.
+
+    16/16 agents validados (15 copywriters + Researcher). Pattern Halbert template
+    adaptado para support role com voz factual analítica investigativa (vs.
+    persuasiva dos copywriters).
+  next_action: "@devops *push, depois Story 4.3 (Copy Reviewer)"
+
+quality_checks:
+  code_review: "PASS"
+  tests: "PASS — npm run validate exit 0 (density 33/33, structure 16/16, research-format 60/60)"
+  acceptance_criteria: "7/8 PASS local | AC8 pending push"
+  no_regressions: "PASS"
+  performance: "PASS"
+  security: "PASS — tools whitelist apropriado para researcher (WebSearch+WebFetch+Read+Write+Grep, sem Agent)"
+  documentation: "PASS"
+
+agent_metrics:
+  body_words: "1.055 (+76% vs 600 target)"
+  output_sections: 7
+  type: "researcher (support specialty)"
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+  jobs_pass: pending
+
+issues: []
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27
