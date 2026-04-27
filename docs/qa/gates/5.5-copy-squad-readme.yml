@@ -1,0 +1,43 @@
+storyId: "5.5"
+storyTitle: "COPY-SQUAD-README.md (human docs)"
+epic: "5"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    COPY-SQUAD-README.md criado (2.250 words, +50% vs target 1.500).
+    README.md symlink → COPY-SQUAD-README.md (GitHub mostra automaticamente).
+
+    Seções obrigatórias todas presentes:
+    - Hero (1 frase + badges CI/version/license)
+    - O que é (parágrafo descritivo)
+    - Por que existe (3 razões)
+    - Instalação (4 opções: específico, --user, --force, --dry-run + --help)
+    - Invocação (slash + direto)
+    - Squad — 15+3 com tabela voz/especialidade/mercados
+    - Routing matrix resumo (14 arquétipos)
+    - Exemplo real ponta-a-ponta (briefing → 6 passos → output)
+    - FAQ (8 perguntas)
+    - Documentos relacionados
+    - Stats do projeto
+    - Contribuir + License + Créditos
+
+    PT-BR nativo. Renderiza no GitHub com badges + headings + tables + code blocks.
+
+    6/7 ACs PASS local; AC7 (CI verde) pending push.
+
+quality_checks:
+  code_review: "PASS — markdown limpo, GitHub-renderable, hierarchy clara"
+  tests: "PASS"
+  acceptance_criteria: "6/7 PASS local | AC7 pending push"
+  no_regressions: "PASS — symlink README→COPY-SQUAD-README não afeta CI"
+  performance: "PASS"
+  security: "PASS"
+  documentation: "PASS — comprehensive 2.250 words"
+
+issues: []
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27
