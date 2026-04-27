@@ -384,6 +384,69 @@
 
 ---
 
-<!-- Próximas seções: Story 2.5 (Abbott/Bird ou substitutos — brand completion + substitution gate) -->
+## Abbott (Story 2.5)
 
-> **🎯 EPIC 2 progresso pós-Story 2.4:** **4/5 stories — vertical Direct Response 100% completo (Stories 1.7+2.1+2.2+2.3) + 3/5 brand vertical (Story 2.4: Ogilvy/Bernbach/Burnett).** Próxima: 2.5 (Abbott/Bird ou substitutos pré-aprovados — brand completion + substitution gate per NFR6 Constitution).
+### Queries usadas
+
+1. `David Abbott copywriter AMV BBDO Volvo Sainsbury Economist UK biography`
+
+### Fontes promissoras descartadas
+
+- **Grokipedia** — fonte alternativa não verificável; preferíveis Wikipedia/Campaign/Lürzer's
+- **Various blog posts** com same content reciclado; usadas seletivamente
+
+### Fontes finais citadas
+
+- Wikipedia — David Abbott (advertising) — biografia oficial 1938-2014
+- Creativepool — Legendary AMV BBDO founder David Abbott tribute
+- Campaign Live — Some of David Abbott's creative highlights
+- Campaign US — David Abbott: the principled perfectionist
+- Lürzer's Archive — Remembering David Abbott
+- AdWeek — AMV BBDO's David Abbott Dies at Age 75
+- Advertising Club of New York — AD Club Tribute to David Abbott
+- briefer.copy — David Abbott's creative genius (copywriter profile)
+- Creative Hall of Fame — David Abbott inductee profile
+
+### Data 2026-04-27
+
+---
+
+## Bird (Story 2.5)
+
+### Queries usadas
+
+1. `Drayton Bird Ogilvy direct marketing Commonsense Direct Marketing biography`
+
+### Fontes promissoras descartadas
+
+- **Multiple Amazon edition listings** com same content; usadas seletivamente
+- **Generic blog posts** sobre direct marketing fundamentals citing Bird sem profundidade
+
+### Fontes finais citadas
+
+- Drayton Bird Associates official site (draytonbird.com) — biografia institucional + consultancy work
+- Amazon — Commonsense Direct and Digital Marketing official listing com author bio
+- Google Books — Commonsense Direct & Digital Marketing description
+- Profit Advisors — Commonsense Direct Marketing review com biografia
+- Internet Archive — Commonsense direct marketing texto integral
+- Barnes & Noble — Commonsense Direct and Digital Marketing description
+- Amazon UK — Commonsense Direct and Digital Marketing edition
+- Amazon Kindle — Commonsense Direct and Digital Marketing eBook
+- Google Books — original Commonsense Direct Marketing 1982 edition
+- Amazon — Commonsense Direct Marketing original 1982 listing
+
+### Data 2026-04-27
+
+---
+
+> **🎯🎯🎯 EPIC 2 COMPLETO 🎯🎯🎯** após Story 2.5: **5/5 stories. Roster final 15/15 copywriters todos com dossiers densos validados:**
+>
+> **Direct Response (10/10):** Halbert (1.7) + Schwartz/Hopkins/Caples (2.1) + Sugarman/Kennedy/Bencivenga (2.2) + Carlton/Makepeace/Collier (2.3)
+>
+> **Brand (5/5):** Ogilvy/Bernbach/Burnett (2.4) + Abbott/Bird (2.5)
+>
+> **Total: ~82.000 words em 15 dossiers + 60 arquivos research/* validados via CI + 250+ fontes únicas documentadas.**
+>
+> **Substitution gate (NFR6) NOT needed** — Abbott + Bird produced satisfactory density (5.957 + 6.048 words respectively). Substitutes pré-aprovados (Resor, Reeves, Wells Lawrence, Gossage, Sackheim) remain unused.
+>
+> **Próximo:** Epic 3 (copywriter agents implementation) — research foundation 100% complete.
