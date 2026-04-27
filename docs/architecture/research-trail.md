@@ -300,6 +300,90 @@
 
 ---
 
-<!-- Próximas seções: Lote brand (Stories 2.4/2.5) -->
+## Ogilvy (Story 2.4)
 
-> **🎯 EPIC 2 progresso pós-Story 2.3:** **3/5 stories — vertical Direct Response 100% completo (10/10 copywriters: Halbert + Schwartz/Hopkins/Caples + Sugarman/Kennedy/Bencivenga + Carlton/Makepeace/Collier).** Próximas: 2.4 (Ogilvy/Bernbach/Burnett — brand) e 2.5 (Abbott/Bird ou substitutos pré-aprovados — brand completion + substitution gate).
+### Queries usadas
+
+1. `David Ogilvy biography Ogilvy Mather Hathaway Rolls-Royce Confessions Advertising Man`
+
+### Fontes promissoras descartadas
+
+- **Faster Than Normal** — útil mas síntese editorial leve; preferível Britannica/Wikipedia para biografia rigorosa
+- **Amazon listings de Confessions** — descrições comerciais sem profundidade analítica
+- **Various blog posts genéricos** sobre "father of advertising" — contém repetições; usadas seletivamente
+
+### Fontes finais citadas
+
+- Wikipedia — David Ogilvy (businessman) — biografia oficial detalhada 1911-1999
+- Britannica — David Ogilvy biography (institucional, contribuições principais)
+- Business Hall of Fame — David Ogilvy profile
+- Cult Method — Confessions of an Advertising Man review
+- Faster Than Normal — David Ogilvy análise de princípios
+- The Invisible Mentor — Ogilvy Legendary Advertising Executive
+- Cole Krohn — David Ogilvy: The Father of Modern Advertising
+- Scribd PDF — David Ogilvy: Father of Advertising (acadêmico)
+- Entrepreneur magazine — David Ogilvy biographical profile
+- New World Encyclopedia — David Ogilvy entry
+
+### Data 2026-04-27
+
+---
+
+## Bernbach (Story 2.4)
+
+### Queries usadas
+
+1. `Bill Bernbach DDB Doyle Dane Bernbach Think Small Volkswagen creative revolution biography`
+
+### Fontes promissoras descartadas
+
+- **FixQuotes** — coleção de quotes; útil para verbatim mas sem narrativa
+- **Múltiplas blog posts** sobre Think Small com mesma análise; usadas seletivamente as mais substantivas
+
+### Fontes finais citadas
+
+- Wikipedia — William Bernbach (biografia oficial 1911-1982)
+- Mark Hamilton (Medium/The Agency) — The ad that changed advertising (Think Small análise)
+- Current360 — Bill Bernbach and the Creative Revolution
+- Visual Rhetoric (UNC Charlotte) — Think Small Advertising Campaign acadêmico
+- Wikipedia — Think Small entry oficial
+- Biztalbox — Volkswagen Think Small Poster That Blew Up Advertising
+- The Marketing Cell — Story behind Think Small campaign
+- Creativepool — Ads that made history: Think Small
+- Media Marketing — 65 Years Ago DDB Dared Americans to Think Small
+- FixQuotes — Think Small Volkswagen Ad 1960 William Bernbach
+
+### Data 2026-04-27
+
+---
+
+## Burnett (Story 2.4)
+
+### Queries usadas
+
+1. `Leo Burnett biography Marlboro Man Tony Tiger Pillsbury Doughboy Chicago school inherent drama`
+
+### Fontes promissoras descartadas
+
+- **idolnetworth.net** — fontes de net worth, sem relevância para biografia profissional
+- **Grokipedia** — fonte alternativa não verificável; usada apenas para cross-reference, citada com nota
+
+### Fontes finais citadas
+
+- Wikipedia — Leo Burnett (biografia oficial 1891-1971, characters criados, Chicago school)
+- A Touch of Business — Biography Summary of Leo Burnett
+- Encyclopedia.com — Leo Burnett (institucional)
+- TIME Archive — Leo Burnett: Sultan Of Sell
+- The Famous People — Leo Burnett Biography
+- Right Attitudes — Leo Burnett on Meaning and Purpose
+- PBS — Chicago Stories: The Real Mad Men of Chicago (documentário)
+- The Daily Omnivore — Leo Burnett profile
+- Grokipedia — Leo Burnett (cross-reference apenas)
+
+### Data 2026-04-27
+
+---
+
+<!-- Próximas seções: Story 2.5 (Abbott/Bird ou substitutos — brand completion + substitution gate) -->
+
+> **🎯 EPIC 2 progresso pós-Story 2.4:** **4/5 stories — vertical Direct Response 100% completo (Stories 1.7+2.1+2.2+2.3) + 3/5 brand vertical (Story 2.4: Ogilvy/Bernbach/Burnett).** Próxima: 2.5 (Abbott/Bird ou substitutos pré-aprovados — brand completion + substitution gate per NFR6 Constitution).
