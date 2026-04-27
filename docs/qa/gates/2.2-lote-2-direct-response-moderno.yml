@@ -9,20 +9,17 @@ decision:
   status: PASS
   rationale: |
     Story 2.2 entregue com qualidade superior à Story 2.1. 3 dossiers totalizando
-    15.378 words (target 10.500, +46% — vs +25% do Lote 1). 8/9 ACs verificados
-    localmente; AC9 (CI verde após push) fica condicional ao @devops *push, em
-    conformidade com Article I/II da Constitution (push exclusivo de @devops).
+    15.378 words (target 10.500, +46% — vs +25% do Lote 1). 9/9 ACs verificados
+    (AC9 confirmada via CI run #24972004308 SUCCESS, 4 jobs PASS).
     Pattern Halbert/Lote 1 escalado eficientemente em batch de 3 — cada dossier
     superando individualmente o target, com Bencivenga atingindo 5.567 words
     (+59%, maior densidade de qualquer dossier produzido até hoje).
-  next_action: "@devops *push (pendente, para finalizar AC9), depois @po *close-story 2.2"
-  conditional_blockers:
-    - "AC9: CI 4 jobs PASS — só pode ser validado após @devops fazer push real (delegação Article I/II)."
+  next_action: "@po *close-story 2.2 (executado)"
 
 quality_checks:
   code_review: "PASS — markdown denso, hierarquia consistente, atribuições históricas verificáveis"
-  tests: "PASS — npm run validate exit 0 (density 9/9, structure 0 violations, research-format 28/28)"
-  acceptance_criteria: "8/9 PASS local | AC9 pending @devops push"
+  tests: "PASS — npm run validate exit 0 + CI 4 jobs PASS (density 9/9, structure 0 violations, research-format 28/28, UTF-8/LF/no BOM)"
+  acceptance_criteria: "9/9 PASS (AC9 confirmada via CI #24972004308)"
   no_regressions: "PASS — 16 arquivos Lote 1 + Halbert continuam PASS na revalidação"
   performance: "PASS — validação roda em segundos; pipeline inalterada"
   security: "PASS — sem novas deps; sem credenciais; sem URLs externas executáveis"
@@ -102,10 +99,14 @@ source_quality:
     bencivenga: "Marketing Maxims official + marketingbullets.com + LinkedIn + Scott Martin + Brinda (Medium) + Kim Schwalm + Ben Settle + NordicCopy + VeryGoodCopy + Swipe File Archive + Scribd + DOKUMEN.PUB"
 
 remote_evidence:
-  workflow_run_id: null
-  conclusion: pending
-  jobs_pass: pending
-  note: "Push delegado a @devops (Article I/II Constitution) — CI 4 jobs PASS esperado pós-push baseado em validação local 100% PASS"
+  workflow_run_id: 24972004308
+  conclusion: success
+  jobs_pass: 4
+  jobs:
+    - "UTF-8 + LF + no BOM: success"
+    - "Validate density (NFR1 + NFR2): success"
+    - "Validate research source format (DEC-002): success"
+    - "Validate YAML structure: success"
 
 issues: []
 
