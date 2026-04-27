@@ -107,4 +107,102 @@
 
 ---
 
-<!-- Próximas seções: Sugarman/Kennedy/Bencivenga (Story 2.2), etc. -->
+## Sugarman (Story 2.2)
+
+### Queries usadas
+
+1. `Joseph Sugarman copywriter biography JS&A BluBlocker Triggers slippery slide advertorial`
+2. `Joseph Sugarman Adweek Copywriting Handbook 17 axioms psychological triggers list`
+
+### Fontes promissoras descartadas
+
+- **Amazon book listings** (Adweek Handbook) — páginas comerciais sem conteúdo extraível para citação
+- **PDFs hospedados em sites genéricos** (Bookey CDN, Scribd) — confiabilidade variável, preferíveis fontes editoriais ou archive.org
+
+### Fontes finais citadas
+
+- Chessprogramming wiki — Joseph Sugarman bio entry (Chicago, U Miami, Army 1962, JS&A)
+- AWAI — Joe Sugarman bio profissional (carreira, BluBlocker, legacy)
+- Neil Patel — 7 Lessons From Joseph Sugarman (carreira + slippery slide)
+- Creative Copywriter — 7 Copywriting Lessons (carreira + Sackheim 1991, DMA Man of the Year 1979)
+- Lars Lofgren — 17 Copywriting Axioms of Joseph Sugarman (axiomas detalhados)
+- Valchanova — Adweek Copywriting Handbook book notes (estilo)
+- Carmine Mastropierro — Joseph Sugarman frameworks (slippery slide + JS&A ads)
+- Cristian Rusu (Medium) — Lessons from Sugarman (tom conversacional)
+- Copywriting Course — Joe Sugarman Triggers (lista 30+ triggers)
+- Shortform — The Adweek Copywriting Handbook overview
+- Internet Archive — Adweek Copywriting Handbook full text (referência)
+- YouTube — Joseph Sugarman's #1 Copywriting Framework | Swipe These Advertorial Examples
+
+### Data 2026-04-26
+
+---
+
+## Kennedy (Story 2.2)
+
+### Queries usadas
+
+1. `Dan Kennedy copywriter Magnetic Marketing GKIC No B.S. info-marketing biography`
+2. `Dan Kennedy sales letter formula PS magnetic marketing structure premium pricing`
+
+### Fontes promissoras descartadas
+
+- **LinkedIn perfis** — overview superficial, preferíveis biografias profissionais editoriais
+- **Goodreads author pages** — listing de livros sem narrativa contextual
+- **Amazon kindle listings** específicos — descrição comercial sem profundidade biográfica
+
+### Fontes finais citadas
+
+- Small Business Rainmaker — Dan S. Kennedy bio (Magnetic Marketing 1970, No B.S. 1976, GKIC 1992-93)
+- Aaron Emerson — Dan Kennedy: Ultimate DR Marketing Pioneer (carreira)
+- Magnetic Marketing official site — biografia institucional + produto
+- Penji — Who is Dan Kennedy? (síntese de carreira + GKIC + influência)
+- Gravitas Investigations — Ultimate Sales Letter analysis (sales letter formula)
+- Carmine Mastropierro — Dan Kennedy Ultimate Sales Letter System (P.S., bullets)
+- BeFreed — Ultimate Sales Letter 4th Edition synthesis
+- Hire a Writer — Dan Kennedy: Revolutionary Behind DR Marketing (tom No B.S.)
+- Shortform — How to Write a Sales Letter — Dan Kennedy's Strategies (PAS, AIDA, P.S.)
+- Amazon — Magnetic Marketing book listing (sistema)
+- Scientific Advertising — Magnetic Marketing Deluxe review (componentes do kit)
+- Russell Brunson / marketingsecrets — VRE Magnetic Marketing Episode #1
+- Swipe File Archive — Magnetic Ad Compilation + Original Renegade Millionaire sales letter
+- YouTube — Why I Bought Dan Kennedy's Life Work (Magnetic Marketing pós-GKIC)
+
+### Data 2026-04-26
+
+---
+
+## Bencivenga (Story 2.2)
+
+### Queries usadas
+
+1. `Gary Bencivenga marketing bullets copywriter biography Boardroom Phillips Publishing controls`
+2. `Gary Bencivenga marketing bullets "outsold David Ogilvy" Bencivenga 100 seminar`
+
+### Fontes promissoras descartadas
+
+- **Studocu PDF** — material acadêmico secundário; preferível ir aos originais (marketingbullets.com)
+- **Donnie Bryant tag pages** — coleção de blog posts sem síntese curada; útil para deep dive futuro
+- **Scribd PDF "Free Bencivenga Bullets"** — embora útil, é cópia secundária; preferida quando archive oficial está incompleto
+
+### Fontes finais citadas
+
+- Marketing Maxims — site oficial Bencivenga (biografia + acesso a Bullets)
+- Marketing Bullets archive (marketingbullets.com) — 37 issues + biografia editorial
+- LinkedIn — Gary Bencivenga (Accountable Advertising) — track record clientes
+- Scott Martin Direct Response Copywriter — Gary Bencivenga Interview (BBDO/Caples → Ogilvy → freelance)
+- Brinda (Medium) — 12 Timeless Marketing Maxims (princípios completos)
+- Kim Schwalm — Bencivenga's 10 maxims (análise de copywriter Hall of Fame)
+- Ben Settle — Bencivenga's Secret Copywriting Weapon (proof + specificity)
+- NordicCopy — Marketing Bullets Summary (síntese editorial das 37 issues)
+- VeryGoodCopy — Bencivenga Bullets coleção
+- Marketing Bullets — Bullet 27 (exemplo direto de issue)
+- Swipe File Archive — Bencivenga peças arquivadas (Boardroom, Phillips, Rodale)
+- Scribd — Free Bencivenga Bullets archive (cópia secundária 37 issues)
+- DOKUMEN.PUB — The Gary Bencivenga 100 Seminar reference (2008)
+
+### Data 2026-04-26
+
+---
+
+<!-- Próximas seções: Carlton/Makepeace/Collier (Story 2.3), etc. -->
