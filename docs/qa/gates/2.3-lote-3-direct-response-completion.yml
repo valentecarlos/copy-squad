@@ -10,8 +10,7 @@ decision:
   rationale: |
     Story 2.3 entregue com qualidade ainda superior à Story 2.2. 3 dossiers
     totalizando 17.377 words (target 10.500, +65% — vs +46% Lote 2 e +25% Lote 1).
-    8/9 ACs verificados localmente; AC9 (CI verde após push) condicional ao
-    @devops *push (Article I/II Constitution).
+    9/9 ACs verificados (AC9 confirmada via CI run #24972591658 SUCCESS, 4 jobs PASS).
 
     **Marco histórico:** com esta story, vertical Direct Response do roster
     está 100% completo (10/10 copywriters):
@@ -22,14 +21,12 @@ decision:
 
     Cada dossier do Lote 3 superou individualmente o target — Collier atingiu
     6.082 words (+74%, novo recorde), Makepeace 5.853 (+67%), Carlton 5.442 (+55%).
-  next_action: "@devops *push (pendente, para finalizar AC9), depois @po *close-story 2.3"
-  conditional_blockers:
-    - "AC9: CI 4 jobs PASS — só pode ser validado após @devops fazer push real (Article I/II)."
+  next_action: "@po *close-story 2.3 (executado)"
 
 quality_checks:
   code_review: "PASS — markdown denso, hierarquia consistente, atribuições históricas verificáveis"
   tests: "PASS — npm run validate exit 0 (density 12/12, structure 0 violations, research-format 40/40)"
-  acceptance_criteria: "8/9 PASS local | AC9 pending @devops push"
+  acceptance_criteria: "9/9 PASS (AC9 confirmada via CI #24972591658)"
   no_regressions: "PASS — 28 arquivos prévios continuam PASS na revalidação"
   performance: "PASS — validação roda em segundos; pipeline inalterada"
   security: "PASS — sem novas deps; sem credenciais; sem URLs externas executáveis"
@@ -121,10 +118,14 @@ milestone:
   next_vertical: "Brand (Stories 2.4-2.5): Ogilvy/Bernbach/Burnett + Abbott/Bird ou substitutos"
 
 remote_evidence:
-  workflow_run_id: null
-  conclusion: pending
-  jobs_pass: pending
-  note: "Push delegado a @devops (Article I/II) — CI 4 jobs PASS esperado pós-push baseado em validação local 100% PASS"
+  workflow_run_id: 24972591658
+  conclusion: success
+  jobs_pass: 4
+  jobs:
+    - "UTF-8 + LF + no BOM: success"
+    - "Validate density (NFR1 + NFR2): success"
+    - "Validate research source format (DEC-002): success"
+    - "Validate YAML structure: success"
 
 issues: []
 
