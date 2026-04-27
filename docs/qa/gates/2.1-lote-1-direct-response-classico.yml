@@ -1,0 +1,49 @@
+storyId: "2.1"
+storyTitle: "Lote 1 — Schwartz/Hopkins/Caples"
+epic: "2"
+verdict: PASS
+verdict_at: 2026-04-26
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    Story 2.1 entregue com qualidade alta. 3 dossiers totalizando 13,115 words
+    (target 10,500, +25%). 9/9 ACs verificados. CI run #24971254123 SUCCESS.
+    Pattern Halbert (Story 1.7) replicado eficientemente em escala — cada
+    dossier ~4400 words com 4 sub-sections × 4 sub-sub-sections.
+  next_action: "@po *close-story 2.1"
+
+quality_checks:
+  code_review: PASS (markdown denso, atribuições verificáveis)
+  tests: PASS (CI run real)
+  acceptance_criteria: "9/9 PASS"
+  no_regressions: PASS
+  performance: PASS (CI ~12s parallel mantido)
+  security: PASS
+  documentation: PASS
+
+word_counts:
+  schwartz: 4175 words (+19% vs 3500 target)
+  hopkins: 4559 words (+30%)
+  caples: 4381 words (+25%)
+  total: 13115 words (+25% vs 10500 target)
+
+framework_coverage:
+  schwartz: ["5 awareness levels", "5 sophistication levels", "mass desire", "mechanism", "stage-mechanism match"]
+  hopkins: ["reason-why", "scientific method", "sampling", "money-back guarantee", "specificity", "habit creation"]
+  caples: ["35 headline templates", "A/B testing methodology", "80/20 headlines", "specificity principle", "self-interest test", "story headlines"]
+
+canonical_pieces_covered:
+  schwartz: ["Boardroom 'Read 300 Magazines'", "Burton Pike Memory Course", "Rodale Press"]
+  hopkins: ["Schlitz Beer 5 Steps Pure", "Pepsodent mucin film", "Quaker Puffed Wheat 'Shot from Guns'", "Goodyear/Palmolive/Van Camp's"]
+  caples: ["Piano headline 1925", "Sherwin Cody 'These Mistakes in English'", "BBDO era (Phoenix Mutual, ICS, Carnegie)"]
+
+remote_evidence:
+  workflow_run_id: 24971254123
+  conclusion: success
+  jobs_pass: 4
+
+issues: []
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-26
