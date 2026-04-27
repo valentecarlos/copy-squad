@@ -9,8 +9,8 @@ decision:
   status: PASS
   rationale: |
     Story 2.5 entregue com qualidade alta. 2 dossiers totalizando 12.005 words
-    (target 7.000, +71%). 9/10 ACs verificados localmente (incluindo AC10 Epic 2
-    completion); AC9 (CI verde) condicional ao @devops *push.
+    (target 7.000, +71%). 10/10 ACs verificados (incluindo AC9 confirmada via CI
+    run #24976377656 SUCCESS + AC10 Epic 2 completion).
 
     **🎯🎯🎯 MARCO HISTÓRICO ABSOLUTO: EPIC 2 COMPLETO**
 
@@ -31,14 +31,12 @@ decision:
     Densidade crescente sustentada: Lote 1 +25% → Lote 2 +46% → Lote 3 +65% →
     Lote 4 +79% → Lote 5 +71% (slight decrease vs Lote 4 mas still significantly
     above target).
-  next_action: "@devops *push (pendente, para finalizar AC9 + Epic 2 closure histórico)"
-  conditional_blockers:
-    - "AC9: CI 4 jobs PASS — só pode ser validado após @devops fazer push real (Article I/II)."
+  next_action: "Epic 3 (copywriter agents implementation) — research foundation 100% complete"
 
 quality_checks:
   code_review: "PASS — markdown denso, hierarquia consistente, atribuições verificáveis"
   tests: "PASS — npm run validate exit 0 (density 17/17, structure 0 violations, research-format 60/60)"
-  acceptance_criteria: "9/10 PASS local (incluindo AC10 Epic 2 completion) | AC9 pending @devops push"
+  acceptance_criteria: "10/10 PASS (AC9 confirmada via CI #24976377656 + AC10 Epic 2 completion)"
   no_regressions: "PASS — 52 arquivos prévios continuam PASS na revalidação"
   performance: "PASS — validação roda em segundos"
   security: "PASS — sem novas deps; sem credenciais"
@@ -141,10 +139,14 @@ epic_2_completion_milestone:
   next_step: "Epic 3 (copywriter agents implementation) — research foundation 100% complete"
 
 remote_evidence:
-  workflow_run_id: null
-  conclusion: pending
-  jobs_pass: pending
-  note: "Push delegado a @devops (Article I/II) — CI 4 jobs PASS esperado pós-push baseado em 5 stories prévias com mesma pipeline 100% PASS"
+  workflow_run_id: 24976377656
+  conclusion: success
+  jobs_pass: 4
+  jobs:
+    - "UTF-8 + LF + no BOM: success"
+    - "Validate density (NFR1 + NFR2): success"
+    - "Validate research source format (DEC-002): success"
+    - "Validate YAML structure: success"
 
 issues: []
 
