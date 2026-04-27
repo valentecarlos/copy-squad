@@ -10,7 +10,7 @@ decision:
   rationale: |
     Story 3.2 entregue com qualidade alta. 3 agents criados replicando template
     Halbert (Story 3.1) com fidelity. Total 2.947 words body (+64% vs target 1.800).
-    10/11 ACs verificados localmente; AC11 (CI verde) condicional ao @devops *push.
+    11/11 ACs verificados (AC11 confirmada via CI run #24996381036 SUCCESS, 4 jobs PASS).
 
     Pattern template Halbert validado em escalação 3x — primeira evidence empírica
     de que o template é replicável sem perda de qualidade.
@@ -18,12 +18,12 @@ decision:
     Differentiation rigorosa documented entre os 4 agents (Halbert + Schwartz + Hopkins + Caples)
     + anti-confusion vs. outros DR copywriters não-implementados ainda (Sugarman, Kennedy,
     Bencivenga, Carlton, Makepeace, Collier).
-  next_action: "@devops *push (pendente, para finalizar AC11)"
+  next_action: "Story 3.3 (Sugarman/Kennedy/Bencivenga — DR moderno)"
 
 quality_checks:
   code_review: "PASS — markdown limpo, frontmatter YAML válido em 3 agents"
   tests: "PASS — npm run validate exit 0 (density 21/21, structure 4/4, research-format 60/60)"
-  acceptance_criteria: "10/11 PASS local | AC11 pending @devops push"
+  acceptance_criteria: "11/11 PASS (AC11 confirmada via CI #24996381036)"
   no_regressions: "PASS — Halbert agent + 60 research files prévios continuam PASS"
   performance: "PASS"
   security: "PASS — tools whitelist [Read, Grep] terminal em 3 agents (anti-recursion DEC-001)"
@@ -97,10 +97,14 @@ template_validation:
     - "Pattern escalável: 5 stories Epic 3 podem usar mesmo template"
 
 remote_evidence:
-  workflow_run_id: null
-  conclusion: pending
-  jobs_pass: pending
-  note: "Push delegado a @devops (Article I/II)"
+  workflow_run_id: 24996381036
+  conclusion: success
+  jobs_pass: 4
+  jobs:
+    - "UTF-8 + LF + no BOM: success"
+    - "Validate density (NFR1 + NFR2): success"
+    - "Validate research source format (DEC-002): success"
+    - "Validate YAML structure: success (validou 3 novos agents schwartz/hopkins/caples)"
 
 issues: []
 approved_by: "@qa (Quinn)"
