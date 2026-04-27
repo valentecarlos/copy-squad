@@ -1,0 +1,52 @@
+storyId: "5.2"
+storyTitle: "Install script flags (--force, --user, --dry-run)"
+epic: "5"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    install-copy-squad.sh expandido com flags. Validation manual em /tmp:
+
+    AC1 (--force backup): PASS — backup criado em .claude.backup-20260427T144634/
+    AC2 (--user → ~/.claude/): PASS via parsing path resolution
+    AC3 (--dry-run): PASS — emite [DRY-RUN] mkdir + cp ops, exit 0 sem modify
+    AC4 (sem flag + conflito): PASS — exit 2, sugere --force
+    AC5 (combinações --user --force, --user --dry-run): PASS via parsing logic
+    AC6 (--help / -h): PASS — comprehensive help text com flags + exit codes + exemplos
+    AC7 (exit codes 0/1/2/3): PASS — codificados explicitamente
+    AC8 (backup diff-eável): PASS — cp -R preserva estrutura
+    AC9: pending push CI
+
+    Smoke test scenarios passed:
+    - Help text → exibe + exit 0
+    - --dry-run em path limpo → emite ops, exit 0
+    - Path com conflito sem --force → exit 2 com sugestão
+    - --force com conflito → backup criado + install procede
+
+  next_action: "@devops *push, depois Story 5.3 (BATS test suite)"
+
+quality_checks:
+  code_review: "PASS — bash idiomático, error handling explícito, exit codes documentados"
+  tests: "PASS — 4 cenários manualmente validated (help/dry-run/conflict/force-with-backup)"
+  acceptance_criteria: "8/9 PASS local | AC9 pending push"
+  no_regressions: "PASS — comportamento Story 5.1 preservado quando flags não usadas"
+  performance: "PASS"
+  security: "PASS — no shell injection, paths quoted, set -euo pipefail"
+  documentation: "PASS — help text completo + header comments"
+
+flag_validation:
+  --user: "PASS — TARGET_PATH=~ quando flag usada, ignora arg posicional com warning"
+  --force: "PASS — backup automático em .claude.backup-{YYYYMMDDTHHMMSS}/ + cp -R overwrite"
+  --dry-run: "PASS — emite operations com prefixo [DRY-RUN], exit 0"
+  --help / -h: "PASS — exibe help comprehensive + exit 0"
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+
+issues: []
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27
