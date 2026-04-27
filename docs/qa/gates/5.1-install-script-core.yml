@@ -1,0 +1,49 @@
+storyId: "5.1"
+storyTitle: "Install script core"
+epic: "5"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    install-copy-squad.sh criado (1.918 bytes, chmod +x).
+    Shebang #!/usr/bin/env bash. set -euo pipefail.
+    Smoke test executado em /tmp/copy-squad-test-install:
+    - 18 agents copiados (.claude/agents/)
+    - 15 research dirs copiados (research/)
+    - Slash command (.claude/commands/copy.md) copiado
+    - settings.local.json não copiado (per AC4)
+    - Sucesso log "✅ Copy Squad v2 instalado em..." emitido
+    - Próximo passo log emitido
+
+    Validações:
+    - AC1: install script criado + chmod +x ✅
+    - AC2: aceita 1 arg posicional ✅
+    - AC3: valida path existe + read+write ✅
+    - AC4: copia .claude/agents, .claude/commands, research/ (NÃO settings.local) ✅
+    - AC5: log sucesso ✅
+    - AC6: falha graceful via stderr + exit code != 0 ✅
+    - AC7: bash shebang compatível macOS bash+zsh ✅
+    - AC8: shebang #!/usr/bin/env bash ✅
+    - AC9: pending push CI
+
+    Story 5.2 vai estender este script com flags --force/--user/--dry-run.
+
+quality_checks:
+  code_review: "PASS — bash idiomático, set -euo pipefail, error handling claro"
+  tests: "PASS — smoke test manual em /tmp validou install funcional"
+  acceptance_criteria: "8/9 PASS local | AC9 pending push"
+  no_regressions: "PASS"
+  performance: "PASS — script roda em <1s"
+  security: "PASS — set -euo, no eval, paths quoted, no shell injection vectors"
+  documentation: "PASS — header comment + usage embedded"
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+
+issues: []
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27
