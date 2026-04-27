@@ -10,7 +10,7 @@ decision:
   rationale: |
     Story 3.1 entregue com qualidade alta. `.claude/agents/halbert.md` criado
     com 1.051 words body (+75% vs target 600 — NFR1 PASS confortavelmente).
-    10/11 ACs verificados localmente; AC11 (CI verde) condicional ao @devops *push.
+    11/11 ACs verificados (AC11 confirmada via CI run #24994271084 SUCCESS, 4 jobs PASS).
 
     🎯 Marco: primeira story Epic 3. Halbert agent estabelece template
     replicável para os outros 14 agentes (Stories 3.2-3.5):
@@ -21,14 +21,12 @@ decision:
     - Output protocol (2 versões + nota) explicit
     - Mantras canônicos incluídos
     - Tools whitelist terminal (Read+Grep only, anti-recursion)
-  next_action: "@devops *push (pendente, para finalizar AC11) — depois replicar template para Stories 3.2-3.5"
-  conditional_blockers:
-    - "AC11: CI 4 jobs PASS — só pode ser validado após @devops fazer push real (Article I/II)."
+  next_action: "Story 3.2 (Schwartz/Hopkins/Caples agents) — replicar template em batch de 3"
 
 quality_checks:
   code_review: "PASS — markdown limpo, hierarquia consistente, frontmatter YAML válido"
   tests: "PASS — npm run validate exit 0 (density 18/18, structure 1/1, research-format 60/60)"
-  acceptance_criteria: "10/11 PASS local | AC11 pending @devops push"
+  acceptance_criteria: "11/11 PASS (AC11 confirmada via CI #24994271084)"
   no_regressions: "PASS — 60 research files prévios continuam PASS"
   performance: "PASS — validação roda em segundos; lazy-load principle no agent preserva NFR4"
   security: "PASS — tools whitelist correto (Read+Grep terminal), NFR7 enforced"
@@ -85,10 +83,14 @@ milestone:
   next_step: "Story 3.2 (Schwartz/Hopkins/Caples agents — DR clássico) replica template em batch de 3"
 
 remote_evidence:
-  workflow_run_id: null
-  conclusion: pending
-  jobs_pass: pending
-  note: "Push delegado a @devops (Article I/II) — CI 4 jobs PASS esperado pós-push baseado em pipeline validada em 5 stories Epic 2"
+  workflow_run_id: 24994271084
+  conclusion: success
+  jobs_pass: 4
+  jobs:
+    - "UTF-8 + LF + no BOM: success"
+    - "Validate density (NFR1 + NFR2): success"
+    - "Validate research source format (DEC-002): success"
+    - "Validate YAML structure: success (detected new halbert.md agent + validated frontmatter)"
 
 issues: []
 
