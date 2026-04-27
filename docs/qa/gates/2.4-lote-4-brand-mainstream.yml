@@ -10,8 +10,8 @@ decision:
   rationale: |
     Story 2.4 entregue com qualidade ainda superior. 3 dossiers totalizando
     18.789 words (target 10.500, +79% — novo recorde do projeto vs Lote 3 +65%,
-    Lote 2 +46%, Lote 1 +25%). 8/9 ACs verificados localmente; AC9 (CI verde)
-    condicional ao @devops *push (Article I/II Constitution).
+    Lote 2 +46%, Lote 1 +25%). 9/9 ACs verificados (AC9 confirmada via CI run
+    #24975884828 SUCCESS, 4 jobs PASS).
 
     **Vertical shift bem-sucedido:** primeira story brand vertical após completar
     100% Direct Response. Pattern dos lotes anteriores escalado mas com
@@ -23,14 +23,12 @@ decision:
     - Bernbach (Story 2.4)
     - Burnett (Story 2.4)
     Falta: Abbott + Bird (Story 2.5) — ou substitutos pré-aprovados (NFR6).
-  next_action: "@devops *push (pendente, para finalizar AC9)"
-  conditional_blockers:
-    - "AC9: CI 4 jobs PASS — só pode ser validado após @devops fazer push real (Article I/II)."
+  next_action: "@po *close-story 2.4 (executado)"
 
 quality_checks:
   code_review: "PASS — markdown denso, hierarquia consistente, atribuições históricas verificáveis"
   tests: "PASS — npm run validate exit 0 (density 15/15, structure 0 violations, research-format 52/52)"
-  acceptance_criteria: "8/9 PASS local | AC9 pending @devops push"
+  acceptance_criteria: "9/9 PASS (AC9 confirmada via CI #24975884828)"
   no_regressions: "PASS — 40 arquivos prévios (DR vertical) continuam PASS"
   performance: "PASS — validação roda em segundos"
   security: "PASS — sem novas deps; sem credenciais"
@@ -118,10 +116,14 @@ milestone:
   next_step: "Story 2.5 (Abbott/Bird ou substitutos NFR6) — completing brand vertical e Epic 2"
 
 remote_evidence:
-  workflow_run_id: null
-  conclusion: pending
-  jobs_pass: pending
-  note: "Push delegado a @devops (Article I/II) — CI 4 jobs PASS esperado pós-push"
+  workflow_run_id: 24975884828
+  conclusion: success
+  jobs_pass: 4
+  jobs:
+    - "UTF-8 + LF + no BOM: success"
+    - "Validate density (NFR1 + NFR2): success"
+    - "Validate research source format (DEC-002): success"
+    - "Validate YAML structure: success"
 
 issues: []
 
