@@ -1,0 +1,118 @@
+storyId: "1.7"
+storyTitle: "Halbert dossier (reference)"
+epic: "1"
+verdict: PASS
+verdict_at: 2026-04-26
+reviewer: "@qa (Quinn)"
+review_mode: comprehensive
+risk_level_handled: high
+
+decision:
+  status: PASS
+  rationale: |
+    Story 1.7 entregue com qualidade EXCELENTE. Risk_level: high tratado
+    apropriadamente. 12/12 ACs verificados. CI run #24970736690 SUCCESS em
+    4 jobs paralelos (incluindo o novo validate-research-format). Halbert
+    estabelece template referência sólido para os 14 dossiers Epic 2.
+
+    Word counts excedem todos os targets em margens generosas (+35% a +73% por
+    arquivo, +53% no total). Pesquisa real via WebSearch+WebFetch documentada
+    em research-trail.md (3 queries, 5+ fontes finais distribuídas em 4 arquivos).
+    Atribuições históricas verificáveis (1938 nascimento, 1971 Coat of Arms,
+    1984 prisão Boron, 1986 newsletter, 2007 morte).
+
+  next_action: "@po *close-story 1.7"
+
+quality_checks:
+  - id: code_review
+    status: PASS
+    notes: |
+      validate-research-format.js segue padrão de validate-density e validate-structure
+      (CommonJS, lib/markdown-utils, --report-only, --root). DEC-002 regex
+      correto. Date validation com range 2024-01-01 até hoje.
+  - id: tests
+    status: PASS
+    notes: "CI run 24970736690 SUCCESS em 4 jobs (real evidence)."
+  - id: acceptance_criteria
+    status: PASS
+    notes: |
+      AC 1 ✅ biografia.md (1076 words, target 800)
+      AC 2 ✅ estilo.md (1114 words, target 800)
+      AC 3 ✅ frameworks.md (1382 words, target 800)
+      AC 4 ✅ exemplos.md (1762 words, target 1100)
+      AC 5 ✅ Total 5361 words (target 3500, +53%)
+      AC 6 ✅ ≥3 fontes por arquivo no formato DEC-002
+      AC 7 ✅ validate-density PASS para research/halbert/
+      AC 8 ✅ research-trail.md documentado com queries + fontes
+      AC 9 ✅ roster-decisions.md skeleton criado
+      AC 10 ✅ validate-research-format.js implementado
+      AC 11 ✅ CI workflow expandido (4º job)
+      AC 12 ✅ CI run SUCCESS
+  - id: no_regressions
+    status: PASS
+    notes: "Stories 1.1-1.6 untouched. validate-density e validate-structure mantidos."
+  - id: performance
+    status: PASS
+    notes: "CI ~10s parallel mantido com 4 jobs."
+  - id: security
+    status: PASS
+    notes: "validate-research-format read-only, sem network/subprocess."
+  - id: documentation
+    status: PASS
+    notes: "Atribuições históricas verificáveis. Fontes citadas conferem com WebSearch results. JSDoc nos scripts."
+
+issues: []
+
+content_quality_assessment:
+  research_quality:
+    sources_count_total: 11 unique URLs
+    sources_per_file_avg: 4
+    historical_accuracy: "Verificável (1938, 1971, 1984, 1986, 2007 confirmed via 5+ sources)"
+    canonical_pieces_covered: 4 (Coat of Arms, Tova Borgnine, Boron Letters, Newsletter)
+    voice_attribution_accuracy: "PT-BR adaptation principles documented in estilo.md"
+
+  framework_coverage:
+    starving_crowd: documented
+    a_pile_b_pile: documented
+    boron_letters_principles: documented
+    motion_beats_meditation: documented
+    aida_via_halbert: documented
+    four_word_test: documented
+    two_step_selling: documented
+    i_want_it_bad_frame: documented
+
+  examples_quality:
+    coat_of_arms_letter: "1971 origin, 600M+ envios, 20K vendas/dia, 700 funcionários — todos com fonte"
+    tova_borgnine: "Espousa Ernest Borgnine, space ad em revistas, direct response em beauty"
+    boron_letters: "1984 prisão Boron CA, cartas semanais ao filho Bond"
+    newsletter: "1986-2007 thegaryhalbertletter.com"
+
+risk_mitigation:
+  template_quality_for_epic_2:
+    bar_set: "5361 words avg per dossier (target 3500), 11 sources per dossier, 4 arquivos × 4 sub-sections"
+    impact_on_epic_2: "Epic 2 (14 dossiers) now has clear quality bar — pode atingir similar quality em ~60-90 min cada"
+    template_replicability: "Estrutura de biografia/estilo/frameworks/exemplos provada como funcional + research-trail format estabelecido"
+
+architecture_compliance:
+  section_3_3_research_dossier: PASS
+  section_3_4_dec_002_sources: PASS
+  section_3_8_encoding: PASS
+  section_5_2_workflow_canonical: PASS (4 jobs paralelos)
+  section_5_3_validation_research_format: PASS (script implementado conforme spec)
+  ADR_002_dec_002_resolved: PASS
+  ADR_018_risk_level: PASS (story flagged + tratada apropriadamente)
+
+remote_evidence:
+  workflow_run_id: 24970736690
+  conclusion: success
+  jobs_pass: 4
+  jobs_total: 4
+
+epic_1_milestone:
+  stories_completed: 7
+  stories_total: 7
+  epic_1_status: "COMPLETE pendente apenas close-story"
+  achievement: "Pipeline foundation totalmente operacional: scaffolding + 3 validation scripts + CI 4 jobs + knowledge base + primeiro real-world dossier validado"
+
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-26
