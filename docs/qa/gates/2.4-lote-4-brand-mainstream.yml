@@ -1,0 +1,129 @@
+storyId: "2.4"
+storyTitle: "Lote 4 — Ogilvy/Bernbach/Burnett (Brand vertical opening)"
+epic: "2"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    Story 2.4 entregue com qualidade ainda superior. 3 dossiers totalizando
+    18.789 words (target 10.500, +79% — novo recorde do projeto vs Lote 3 +65%,
+    Lote 2 +46%, Lote 1 +25%). 8/9 ACs verificados localmente; AC9 (CI verde)
+    condicional ao @devops *push (Article I/II Constitution).
+
+    **Vertical shift bem-sucedido:** primeira story brand vertical após completar
+    100% Direct Response. Pattern dos lotes anteriores escalado mas com
+    adaptações estruturais — análise de brand image, big idea, archetype,
+    character creation vs. sales letter, slippery slide, proof stacking.
+
+    Lote 4 completou 3/5 brand titans:
+    - Ogilvy (Story 2.4)
+    - Bernbach (Story 2.4)
+    - Burnett (Story 2.4)
+    Falta: Abbott + Bird (Story 2.5) — ou substitutos pré-aprovados (NFR6).
+  next_action: "@devops *push (pendente, para finalizar AC9)"
+  conditional_blockers:
+    - "AC9: CI 4 jobs PASS — só pode ser validado após @devops fazer push real (Article I/II)."
+
+quality_checks:
+  code_review: "PASS — markdown denso, hierarquia consistente, atribuições históricas verificáveis"
+  tests: "PASS — npm run validate exit 0 (density 15/15, structure 0 violations, research-format 52/52)"
+  acceptance_criteria: "8/9 PASS local | AC9 pending @devops push"
+  no_regressions: "PASS — 40 arquivos prévios (DR vertical) continuam PASS"
+  performance: "PASS — validação roda em segundos"
+  security: "PASS — sem novas deps; sem credenciais"
+  documentation: "PASS — research-trail.md atualizado + nota Epic 2 4/5"
+
+word_counts:
+  ogilvy: "5.913 words (+69% vs 3500 target)"
+  bernbach: "6.258 words (+79%)"
+  burnett: "6.618 words (+89% — novo recorde individual)"
+  total: "18.789 words (+79% vs 10.500 target — novo recorde do projeto)"
+
+framework_coverage:
+  ogilvy:
+    - "Confessions of an Advertising Man (1963) sistematização canônica"
+    - "38 perguntas pré-copy (research checklist)"
+    - "Brand image philosophy (cumulative reservoir)"
+    - "Long-copy bias ('the more you tell, the more you sell')"
+    - "Big Idea como espinha dorsal"
+    - "Headline + visual + body arquitetura clássica"
+    - "Research-driven creativity (Gallup heritage)"
+    - "11 commandments para great advertising (1983)"
+  bernbach:
+    - "DDB philosophy (Creative Revolution)"
+    - "Copy + art paired teams revolutionary"
+    - "Honest advertising como framework ético-estratégico"
+    - "Simplicidade radical (visual + verbal economy)"
+    - "Anti-formula thinking"
+    - "Big Idea via art + copy fusion"
+    - "Cultural transformation (advertising como força positiva)"
+    - "Visual rhetoric sofisticada"
+  burnett:
+    - "Inherent drama (filosófico central)"
+    - "Character/archetype creation"
+    - "Chicago school anti-Madison Avenue"
+    - "'Reach for the stars' excellence"
+    - "'Stick-up' approach (defending creative)"
+    - "Realism dramático (vs. fantasy aspiration)"
+    - "Visual primacy (character > copy)"
+    - "Long-term brand thinking (décadas)"
+    - "Sistema operacional Burnett completo"
+
+canonical_pieces_covered:
+  ogilvy:
+    - "Hathaway Shirts 'The Man in the Hathaway Shirt' (1951+, eyepatch icônico)"
+    - "Rolls-Royce 'At 60 mph the loudest noise...' (1958, +50% sales, 719 palavras)"
+    - "Schweppes Commander Whitehead campaign (personality-driven longeva)"
+    - "Dove 1/4 cleansing cream (1957+, 70 anos sustentado)"
+    - "Pepperidge Farm Remembers (1956+, nostalgia + artisanal)"
+  bernbach:
+    - "Think Small Volkswagen (1959, #1 Ad Age 20th century)"
+    - "Lemon Volkswagen (1960, honest defect como prova)"
+    - "Avis 'We Try Harder' (1962, 50 anos tagline)"
+    - "Levy's Rye Bread 'You Don't Have to Be Jewish' (1961, diversity pioneer)"
+    - "El Al 'Atlantic Smaller' (visual rhetoric)"
+  burnett:
+    - "Marlboro Man (1954+, rebrand mais bem-sucedido da história)"
+    - "Tony the Tiger (1952+, 74 anos contínuos)"
+    - "Pillsbury Doughboy (1965+, 61 anos)"
+    - "Jolly Green Giant (1928+, 98 anos contínuos)"
+    - "Charlie the Tuna (1961+, inversão irônica)"
+    - "Maytag Repairman (1967+, anti-archetype)"
+    - "Outros: Hubert Lion, Toucan Sam, Snap/Crackle/Pop, Morris the Cat, Keebler Elves, Allstate Good Hands"
+
+historical_attributions_verified:
+  - "Ogilvy: 1911-1999, West Horsley UK, Fettes+Oxford, Aga Khan chef→Hull stove sales→Mather&Crowther→Gallup→OSS→Amish farmer→O&M founding 1948 com $6K, Hathaway 1951, Rolls-Royce 1958 +50% sales, Confessions 1963 milhões/14 idiomas, knighted CBE 1967"
+  - "Bernbach: 1911-1982, NYC Bronx Jewish, NYU English Lit 1933, Schenley→Weintraub (Paul Rand)→Grey VP→DDB founding 1949 com Doyle+Dane, Think Small 1959 #1 Ad Age 20th century, Lemon 1960, Avis 1962, Levy's 1961, Time cover 1969"
+  - "Burnett: 1891-1971, St. Johns Michigan rural, U Michigan Journalism 1914, Peoria Journal-Star→Cadillac→LaFayette→Erwin Wasey→Leo Burnett Co. founding 1935 Chicago Depression-era, Jolly Green Giant 1928+, Tony Tiger 1952+, Marlboro Man 1954+, Pillsbury Doughboy 1965+, Time top 100 most influential 20th century"
+
+source_quality:
+  total_sources_in_dossiers: "~50 únicas distribuídas em 12 arquivos"
+  format_compliance: "DEC-002 schema literal em 100% das ## Fontes sections"
+  cumulative_project_sources: "200+ fontes únicas acumuladas em 52 arquivos research/* (Lotes 1+2+3+4+Halbert)"
+
+milestone:
+  description: "🎯 Vertical Brand 60% completo (3/5 brand titans) após Story 2.4"
+  brand_copywriters_completed:
+    - "Ogilvy (Story 2.4)"
+    - "Bernbach (Story 2.4)"
+    - "Burnett (Story 2.4)"
+  brand_copywriters_remaining:
+    - "Abbott (Story 2.5) — ou substituto pré-aprovado"
+    - "Bird (Story 2.5) — ou substituto pré-aprovado"
+  total_words_brand_so_far: "18.789 words em 3 dossiers densos"
+  cumulative_project_words: "~70.000 words em 13 dossiers densos validados"
+  next_step: "Story 2.5 (Abbott/Bird ou substitutos NFR6) — completing brand vertical e Epic 2"
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+  jobs_pass: pending
+  note: "Push delegado a @devops (Article I/II) — CI 4 jobs PASS esperado pós-push"
+
+issues: []
+
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27
