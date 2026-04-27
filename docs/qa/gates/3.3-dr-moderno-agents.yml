@@ -14,12 +14,12 @@ decision:
 
     Squad cresce de 4 para 7 agents validados — DR vertical agora 7/10 completo.
     Pattern template validado em 6 agents (1+3+3) sem fricção.
-  next_action: "@devops *push"
+  next_action: "Story 3.4 (Carlton/Makepeace/Collier — DR completion 10/10)"
 
 quality_checks:
   code_review: "PASS"
   tests: "PASS — npm run validate exit 0 (density 24/24, structure 7/7, research-format 60/60)"
-  acceptance_criteria: "10/11 PASS local | AC11 pending push"
+  acceptance_criteria: "11/11 PASS (AC11 confirmada via CI #25000764402)"
   no_regressions: "PASS"
   performance: "PASS"
   security: "PASS — tools whitelist terminal em 3 agents"
@@ -41,9 +41,14 @@ squad_progress:
     - "3.5: Ogilvy/Bernbach/Burnett/Abbott/Bird (Brand 5/5)"
 
 remote_evidence:
-  workflow_run_id: null
-  conclusion: pending
-  jobs_pass: pending
+  workflow_run_id: 25000764402
+  conclusion: success
+  jobs_pass: 4
+  jobs:
+    - "UTF-8 + LF + no BOM: success"
+    - "Validate density (NFR1 + NFR2): success"
+    - "Validate research source format (DEC-002): success"
+    - "Validate YAML structure: success"
 
 issues: []
 approved_by: "@qa (Quinn)"
