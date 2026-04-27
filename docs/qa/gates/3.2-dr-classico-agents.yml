@@ -1,0 +1,107 @@
+storyId: "3.2"
+storyTitle: "DR clássico — agentes Schwartz/Hopkins/Caples"
+epic: "3"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    Story 3.2 entregue com qualidade alta. 3 agents criados replicando template
+    Halbert (Story 3.1) com fidelity. Total 2.947 words body (+64% vs target 1.800).
+    10/11 ACs verificados localmente; AC11 (CI verde) condicional ao @devops *push.
+
+    Pattern template Halbert validado em escalação 3x — primeira evidence empírica
+    de que o template é replicável sem perda de qualidade.
+
+    Differentiation rigorosa documented entre os 4 agents (Halbert + Schwartz + Hopkins + Caples)
+    + anti-confusion vs. outros DR copywriters não-implementados ainda (Sugarman, Kennedy,
+    Bencivenga, Carlton, Makepeace, Collier).
+  next_action: "@devops *push (pendente, para finalizar AC11)"
+
+quality_checks:
+  code_review: "PASS — markdown limpo, frontmatter YAML válido em 3 agents"
+  tests: "PASS — npm run validate exit 0 (density 21/21, structure 4/4, research-format 60/60)"
+  acceptance_criteria: "10/11 PASS local | AC11 pending @devops push"
+  no_regressions: "PASS — Halbert agent + 60 research files prévios continuam PASS"
+  performance: "PASS"
+  security: "PASS — tools whitelist [Read, Grep] terminal em 3 agents (anti-recursion DEC-001)"
+  documentation: "PASS"
+
+agent_metrics:
+  schwartz: "1.040 words body (+73% vs 600 target)"
+  hopkins: "934 words body (+56%)"
+  caples: "973 words body (+62%)"
+  total: "2.947 words (+64% vs 1.800 target)"
+
+frameworks_per_agent:
+  schwartz:
+    - "5 Stages of Awareness"
+    - "5 Market Sophistication Levels"
+    - "Mass Desire (canalizada, não inventada)"
+    - "Mechanism"
+    - "Stage-Mechanism Match"
+  hopkins:
+    - "Reason-Why (soul of advertising)"
+    - "Scientific Method aplicado a copy"
+    - "Sampling como força de venda"
+    - "Specificity Principle"
+    - "Money-back Guarantee"
+    - "Coupon Testing (key codes)"
+    - "Habit Creation"
+  caples:
+    - "35 Headline Templates"
+    - "A/B Testing Methodology (split-test)"
+    - "Headline-First Methodology (30-50 headlines)"
+    - "80/20 Rule of Headlines"
+    - "Self-Interest Test"
+    - "Specificity Principle (numérica)"
+    - "Story Headlines"
+
+mantras_verifiable:
+  schwartz:
+    - "Mass desire is found, not invented"
+    - "What awareness stage is the prospect in?"
+    - "Read 300 magazines in 30 minutes"
+  hopkins:
+    - "Reason-why is the soul of advertising"
+    - "Specificity sells"
+    - "Test everything"
+    - "Sampling is the most powerful advertising"
+  caples:
+    - "Tested Advertising Methods"
+    - "30-50 headlines per peça"
+    - "Self-interest test for every headline"
+    - "Specificity is the soul of headline"
+
+squad_progress:
+  agents_total: 4
+  agents_remaining: 11
+  agents_completed:
+    - "halbert (Story 3.1)"
+    - "schwartz (Story 3.2)"
+    - "hopkins (Story 3.2)"
+    - "caples (Story 3.2)"
+  next_stories:
+    - "3.3: Sugarman/Kennedy/Bencivenga (DR moderno)"
+    - "3.4: Carlton/Makepeace/Collier (DR completion)"
+    - "3.5: Ogilvy/Bernbach/Burnett/Abbott/Bird (Brand)"
+
+template_validation:
+  description: "Halbert template (Story 3.1) replicado em 3 agents com fidelity"
+  validation_evidence:
+    - "Density 3/3 PASS individualmente"
+    - "Structure 3/3 PASS (YAML schema + tools whitelist + research_path FR5 + name unique)"
+    - "Differentiation explícita entre 4 agents prevented confusion"
+    - "Pattern escalável: 5 stories Epic 3 podem usar mesmo template"
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+  jobs_pass: pending
+  note: "Push delegado a @devops (Article I/II)"
+
+issues: []
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27
