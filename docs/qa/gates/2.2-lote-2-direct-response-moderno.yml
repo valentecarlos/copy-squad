@@ -1,0 +1,113 @@
+storyId: "2.2"
+storyTitle: "Lote 2 — Sugarman/Kennedy/Bencivenga"
+epic: "2"
+verdict: PASS
+verdict_at: 2026-04-26
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    Story 2.2 entregue com qualidade superior à Story 2.1. 3 dossiers totalizando
+    15.378 words (target 10.500, +46% — vs +25% do Lote 1). 8/9 ACs verificados
+    localmente; AC9 (CI verde após push) fica condicional ao @devops *push, em
+    conformidade com Article I/II da Constitution (push exclusivo de @devops).
+    Pattern Halbert/Lote 1 escalado eficientemente em batch de 3 — cada dossier
+    superando individualmente o target, com Bencivenga atingindo 5.567 words
+    (+59%, maior densidade de qualquer dossier produzido até hoje).
+  next_action: "@devops *push (pendente, para finalizar AC9), depois @po *close-story 2.2"
+  conditional_blockers:
+    - "AC9: CI 4 jobs PASS — só pode ser validado após @devops fazer push real (delegação Article I/II)."
+
+quality_checks:
+  code_review: "PASS — markdown denso, hierarquia consistente, atribuições históricas verificáveis"
+  tests: "PASS — npm run validate exit 0 (density 9/9, structure 0 violations, research-format 28/28)"
+  acceptance_criteria: "8/9 PASS local | AC9 pending @devops push"
+  no_regressions: "PASS — 16 arquivos Lote 1 + Halbert continuam PASS na revalidação"
+  performance: "PASS — validação roda em segundos; pipeline inalterada"
+  security: "PASS — sem novas deps; sem credenciais; sem URLs externas executáveis"
+  documentation: "PASS — research-trail.md atualizado com 3 sections; story file com Dev Agent Record completo"
+
+word_counts:
+  sugarman: "4.696 words (+34% vs 3500 target)"
+  kennedy: "5.115 words (+46%)"
+  bencivenga: "5.567 words (+59% — maior densidade de dossier no projeto)"
+  total: "15.378 words (+46% vs 10.500 target — vs +25% do Lote 1)"
+
+framework_coverage:
+  sugarman:
+    - "17 Copywriting Axioms"
+    - "30+ Psychological Triggers"
+    - "Slippery Slide architecture"
+    - "Seeds of Curiosity"
+    - "Advertorial Structure (modern advertorial pioneer)"
+    - "Conversational style / hipnose textual"
+    - "Story-first / sale-last (1/3 - 1/3 - 1/3)"
+  kennedy:
+    - "Magnetic Marketing System (3 pilares: message-market-media + hourglass funnel + continuity)"
+    - "Sales Letter Formula (29-step process em 3 fases)"
+    - "AIDA + PAS combinados"
+    - "P.S. strategy (segunda parte mais lida)"
+    - "No B.S. philosophy (anti-corporate posture)"
+    - "Premium pricing como filtro"
+    - "Info-Marketing Model (front/core/back-end)"
+    - "Renegade Millionaire (personality-driven branding)"
+  bencivenga:
+    - "Marketing Bullets methodology (37 issues)"
+    - "Proof Stacking (5+ tipos empilhados)"
+    - "Believability Engine (specificity + authority + reasoning)"
+    - "Shake the Tree (multi-benefit storytelling)"
+    - "Control Philosophy (escrever para durar anos)"
+    - "USP Refinement (one-sentence test)"
+    - "Headline Engineering (30-50 headlines per peça)"
+    - "Why Now (urgência genuína)"
+    - "Pre-emptive Objection Handling"
+    - "12 Timeless Marketing Maxims"
+
+canonical_pieces_covered:
+  sugarman:
+    - "BluBlocker Sunglasses long-form ad (20M+ unidades vendidas)"
+    - "JS&A pocket calculator ads (Wall Street Journal, 1971-75)"
+    - "JS&A cordless phone ad (final dos anos 70)"
+    - "JS&A digital watches, detectores de metal, áudio (anos 70-80)"
+    - "Consumer's Hero ads"
+    - "Anatomia comparativa de anúncio JS&A típico"
+  kennedy:
+    - "Magnetic Marketing kit (sales letter + value stack canônica)"
+    - "GKIC No B.S. Marketing Letter (newsletter mensal premium)"
+    - "Renegade Millionaire System sales letter"
+    - "Sales letters para financial publishers (Agora, Boardroom overlap)"
+    - "GKIC SuperConference event marketing"
+    - "Anatomia comparativa de sales letter Kennedy típica"
+  bencivenga:
+    - "Boardroom Reports controles longevos (5-10+ anos sem ser batidos)"
+    - "Phillips Publishing financial newsletter controles"
+    - "Rodale Press health/anti-aging long-form"
+    - "Marketing Bullets newsletter issues canônicas (Bullet 27, Bullets headline crafting, shake the tree)"
+    - "Bencivenga 100 Seminar DVDs (2008, $5K/seat)"
+    - "National Trust for Historic Preservation (cause marketing)"
+    - "Anatomia comparativa de peça Bencivenga típica"
+
+historical_attributions_verified:
+  - "Sugarman: Chicago origin, U Miami EE, Army 1962, JS&A 1971, BluBlocker 1986, Sackheim Award 1991, DMA Man of the Year 1979, falecimento 2022"
+  - "Kennedy: Magnetic Marketing 1970, No B.S. philosophy 1976, GKIC 1992-93 (27 → 1.000+ membros 1995), 250K palestrantes/ano por 10+ anos, 3.000+ palestras pagas, 30+ livros"
+  - "Bencivenga: BBDO/Caples mentor, O&M/Ogilvy mentor, freelance 1980+, Boardroom/Phillips/Rodale clientes, Marketing Bullets 37 issues 2002-2008, Bencivenga 100 seminar 2008"
+
+source_quality:
+  total_sources_in_dossiers: "47 únicas distribuídas em 12 arquivos"
+  format_compliance: "DEC-002 schema literal em 100% das ## Fontes sections"
+  source_diversity:
+    sugarman: "Wikipedia + Chessprogramming + AWAI + Neil Patel + Lars Lofgren + Carmine Mastropierro + Cristian Rusu + Copywriting Course + Shortform + Internet Archive + YouTube"
+    kennedy: "Small Business Rainmaker + Aaron Emerson + Magnetic Marketing official + Penji + Gravitas + BeFreed + Hire a Writer + Shortform + Amazon + Russell Brunson + Swipe File Archive + YouTube"
+    bencivenga: "Marketing Maxims official + marketingbullets.com + LinkedIn + Scott Martin + Brinda (Medium) + Kim Schwalm + Ben Settle + NordicCopy + VeryGoodCopy + Swipe File Archive + Scribd + DOKUMEN.PUB"
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+  jobs_pass: pending
+  note: "Push delegado a @devops (Article I/II Constitution) — CI 4 jobs PASS esperado pós-push baseado em validação local 100% PASS"
+
+issues: []
+
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-26
