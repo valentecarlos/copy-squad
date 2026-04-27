@@ -1,0 +1,96 @@
+storyId: "3.1"
+storyTitle: "Halbert agent — template reference (Epic 3 first story)"
+epic: "3"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    Story 3.1 entregue com qualidade alta. `.claude/agents/halbert.md` criado
+    com 1.051 words body (+75% vs target 600 — NFR1 PASS confortavelmente).
+    10/11 ACs verificados localmente; AC11 (CI verde) condicional ao @devops *push.
+
+    🎯 Marco: primeira story Epic 3. Halbert agent estabelece template
+    replicável para os outros 14 agentes (Stories 3.2-3.5):
+    - YAML frontmatter 7 campos
+    - Body ≥600 words com 6 sections obrigatórias
+    - Lazy-load research principle explicit
+    - Differentiation vs. outros copywriters documented
+    - Output protocol (2 versões + nota) explicit
+    - Mantras canônicos incluídos
+    - Tools whitelist terminal (Read+Grep only, anti-recursion)
+  next_action: "@devops *push (pendente, para finalizar AC11) — depois replicar template para Stories 3.2-3.5"
+  conditional_blockers:
+    - "AC11: CI 4 jobs PASS — só pode ser validado após @devops fazer push real (Article I/II)."
+
+quality_checks:
+  code_review: "PASS — markdown limpo, hierarquia consistente, frontmatter YAML válido"
+  tests: "PASS — npm run validate exit 0 (density 18/18, structure 1/1, research-format 60/60)"
+  acceptance_criteria: "10/11 PASS local | AC11 pending @devops push"
+  no_regressions: "PASS — 60 research files prévios continuam PASS"
+  performance: "PASS — validação roda em segundos; lazy-load principle no agent preserva NFR4"
+  security: "PASS — tools whitelist correto (Read+Grep terminal), NFR7 enforced"
+  documentation: "PASS — story file completo + Dev Agent Record"
+
+agent_metrics:
+  body_word_count: "1.051 words (+75% vs 600 target — NFR1 PASS)"
+  total_word_count: "~1.135 incluindo frontmatter"
+  sections_count: 6
+  sections_compliance: "All 6 obrigatórias presentes + excedendo mínimos"
+  yaml_frontmatter_fields: 7
+  yaml_validation: "Parseable, all required fields present, valid types"
+
+frontmatter_audit:
+  name: "halbert (kebab-case, único entre agents — apenas agent existente)"
+  description: "Distintivo, cobre quando invocar + diferenciação vs. outros DR copywriters"
+  tools: "[Read, Grep] — terminal subagent (correct para anti-recursion DEC-001)"
+  type: "copywriter (valid enum)"
+  specialty: "direct-response (valid enum)"
+  research_path: "research/halbert/ (FR5 enforced, exists in filesystem)"
+  language: "pt-BR (NFR9 default)"
+
+sections_audit:
+  identidade: "~120 words (≥80 min) — Halbert positioning + Florida-direct + Boron Letters + Prince of Print"
+  voz_e_estilo: "~200 words (≥120 min) — 7 marcas operacionais + reference research/halbert/estilo.md + anti-confusion vs. outros"
+  frameworks_que_domina: "~180 words (≥100 min) — 5 frameworks + reference research/halbert/frameworks.md + _shared/frameworks.md"
+  pecas_de_referencia: "~150 words (≥80 min) — Coat of Arms + Tova + Boron Letters + Gary Halbert Letter + reference research/halbert/exemplos.md"
+  como_opera_no_squad: "~250 words (≥100 min) — 7-step operational chain"
+  regras_duras: "~250 words (≥120 min) — 10 regras não-negociáveis incluindo PT-BR, lazy-load, 2 versões + nota, citação fonte"
+
+mantras_verificable:
+  - "Motion beats meditation"
+  - "Find a starving crowd"
+  - "What's the offer?"
+  - "The Boron Letters"
+  - "A-pile vs B-pile"
+  - "Prince of Print"
+
+template_replicability:
+  description: "Halbert agent serves as template reference for Stories 3.2-3.5 (14 agentes restantes)"
+  replication_pattern:
+    - "YAML frontmatter 7 campos (name, description, tools, type, specialty, research_path, language)"
+    - "Body ≥600 words com 6 sections obrigatórias"
+    - "Lazy-load research/{name}/ principle explicit"
+    - "Differentiation vs. outros copywriters do squad"
+    - "Output protocol (2 versões + nota da aposta)"
+    - "Mantras canônicos per copywriter"
+    - "Tools whitelist terminal [Read, Grep]"
+    - "PT-BR default + 10 regras duras"
+
+milestone:
+  description: "🎯 Epic 3 opens — primeiro copywriter agent funcional. Template estabelecido para os 14 agentes restantes."
+  epic_3_progress: "1/5 stories"
+  next_step: "Story 3.2 (Schwartz/Hopkins/Caples agents — DR clássico) replica template em batch de 3"
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+  jobs_pass: pending
+  note: "Push delegado a @devops (Article I/II) — CI 4 jobs PASS esperado pós-push baseado em pipeline validada em 5 stories Epic 2"
+
+issues: []
+
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27
