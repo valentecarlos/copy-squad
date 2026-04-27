@@ -52,4 +52,59 @@
 
 ---
 
-<!-- Próximas seções: Schwartz, Hopkins, Caples (Story 2.1), Sugarman/Kennedy/Bencivenga (Story 2.2), etc. -->
+## Schwartz (Story 2.1)
+
+### Queries usadas
+1. `Eugene Schwartz copywriter biography Breakthrough Advertising awareness levels Boardroom`
+
+### Fontes finais citadas
+- Scientific Advertising authors page (4 arquivos)
+- Jeremy Mac — 10 Copywriting Secrets from Eugene Schwartz
+- Goodreads — Breakthrough Advertising
+- Valchanova — Breakthrough Advertising book notes
+- B-PlanNow — Schwartz Pyramid of Awareness
+- Between the Lines Copy — 5 Stages of Awareness
+- Amazon — Breakthrough Advertising book listing
+
+### Data 2026-04-26
+
+---
+
+## Hopkins (Story 2.1)
+
+### Queries usadas
+1. `Claude Hopkins Scientific Advertising 1923 Schlitz beer Pepsodent Lord Thomas biography`
+
+### Fontes finais citadas
+- Wikipedia — Claude C. Hopkins
+- Scientific Advertising authors page
+- Aaron Emerson — Father of Scientific Advertising
+- Lexicon Thai — From Beer to Toothpaste
+- Fool on a Hill — Hopkins (1866-1932)
+- SOFII — Advertising's Earliest Genius
+- Analytic Strategy Partners — Test-Measure-Refine
+
+### Data 2026-04-26
+
+---
+
+## Caples (Story 2.1)
+
+### Queries usadas
+1. `John Caples copywriter Tested Advertising Methods They Laughed Piano headline BBDO biography`
+
+### Fontes finais citadas
+- Wikipedia — John Caples
+- Scientific Advertising authors page
+- Story Power Marketing — Story Behind One of the Greatest Ads
+- Swipe File Archive — John Caples
+- Caples Awards — About > History
+- Jeremy Mac — 5 Timeless Lessons from John Caples
+- MarketBold — How to Get Better at Copywriting
+- Internet Archive — Tested Advertising Methods (texto completo)
+
+### Data 2026-04-26
+
+---
+
+<!-- Próximas seções: Sugarman/Kennedy/Bencivenga (Story 2.2), etc. -->
