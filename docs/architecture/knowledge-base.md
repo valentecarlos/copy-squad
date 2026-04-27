@@ -16,12 +16,12 @@ AIDA, PAS, 4 U's, 5 Estágios de Consciência (Schwartz), 5 Níveis de Sofistica
 
 ### `glossario.md`
 
-[`/.claude/agents/_shared/glossario.md`](../../.claude/agents/_shared/glossario.md) *(será criado em Story 1.6)*
+[`/.claude/agents/_shared/glossario.md`](../../.claude/agents/_shared/glossario.md)
 
-≥ 30 termos canônicos PT-BR de copywriting com definição, sinônimos e cross-references:
-big idea, lead, kicker, USP, headline, subhead, hook, gatilhos psicológicos (escassez, prova social, autoridade, reciprocidade, compromisso, afinidade), garantia, urgência, oferta, stack de bônus, CTA, P.S., closer, features, benefits, advertorial, controle, swipe file, magnetic copy, e mais.
+**41 termos canônicos PT-BR** de copywriting com definição, sinônimos, uso típico e cross-references:
+big idea, lead, kicker, USP, headline, subhead, hook, gatilhos psicológicos (escassez, prova social, autoridade, reciprocidade, compromisso, afinidade), garantia (incondicional/condicional), urgência, oferta, stack de bônus, CTA, P.S., closer, features, benefits, advertorial, controle, swipe file, magnetic copy, VSL, avatar, direct response, promessa, bullets, curiosity gap, copy, long copy.
 
-≥ 2.000 palavras. Será adicionado em **Story 1.6**.
+**2.408 palavras**, ordenação alfabética A → Z. Adicionado em **Story 1.6** (commit referenciado no Change Log do glossário).
 
 ## Convenções
 
