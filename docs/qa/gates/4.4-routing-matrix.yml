@@ -1,0 +1,52 @@
+storyId: "4.4"
+storyTitle: "Routing matrix"
+epic: "4"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    docs/architecture/routing-matrix.md criado com 14 linhas (13 arquétipos +
+    1 fallback Researcher), excedendo AC2 ≥8 linhas em 75%.
+
+    Cobertura obrigatória PRD AC3 dos 8 verticais: sales page longa (linha 1),
+    VSL lançamento (linha 2), headlines/captura (linha 3), brand storytelling
+    (linha 4), e-mail sequence (linha 5), Meta/Google Ads (linha 6), carta de
+    renovação/reativação (linha 7), info-produto premium (linha 8). Bonus lines
+    9-13: financial newsletter, health/anti-aging, retail sophistication, B2B
+    SaaS, cause marketing.
+
+    Cada linha justificada com critério explícito (mercado, sofisticação, formato).
+    Notas operacionais: default fallback, substituição justificada, Reviewer
+    obrigatório, limites da matriz documentados.
+
+    Linkado em knowledge-base.md como entrada principal de routing logic.
+
+    6/7 ACs PASS local; AC7 pending push.
+  next_action: "@devops *push, depois Story 4.5 (Copy Master orchestrator) fecha Epic 4"
+
+quality_checks:
+  code_review: "PASS"
+  tests: "PASS — npm run validate exit 0 (research-format 60/60)"
+  acceptance_criteria: "6/7 PASS local | AC7 pending push"
+  no_regressions: "PASS"
+  performance: "PASS"
+  security: "PASS"
+  documentation: "PASS — comprehensive coverage + cross-references"
+
+matrix_metrics:
+  total_rows: 14
+  archetypes_covered: 13
+  fallback_rows: 1
+  required_verticals_pra_ac3: "8/8 covered"
+  bonus_verticals: 5
+
+remote_evidence:
+  workflow_run_id: null
+  conclusion: pending
+
+issues: []
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27

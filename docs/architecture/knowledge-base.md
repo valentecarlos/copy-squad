@@ -28,6 +28,30 @@ big idea, lead, kicker, USP, headline, subhead, hook, gatilhos psicológicos (es
 - Arquivos em `_shared/` são **knowledge base**, não agent files
 - Sem YAML frontmatter de schema agent (não têm `name`, `tools`, `type`, etc.)
 - Validados por `validate-density.js` (NFR1 ≥600 words minimum) e `encoding-check`
+
+## Outros documentos de architecture
+
+### `routing-matrix.md`
+
+[`docs/architecture/routing-matrix.md`](./routing-matrix.md)
+
+**Routing matrix do Copy Master** — 13 arquétipos de projeto + 1 fallback Researcher mapeados para squad sugerido (2-4 copywriters) com justificativa de critério (mercado, sofisticação, formato).
+
+Cobertura obrigatória dos 8 verticais PRD: sales page longa, VSL lançamento, headlines/captura, brand storytelling, e-mail sequence, Meta/Google Ads, carta de renovação/reativação, info-produto premium.
+
+Adicionado em **Story 4.4**. Referenciado pelo Copy Master agent (Story 4.5).
+
+### `research-trail.md`
+
+[`docs/architecture/research-trail.md`](./research-trail.md)
+
+Trail de pesquisa para reprodutibilidade NFR5 — queries usadas + fontes promissoras descartadas + fontes finais por copywriter (15 sections, 1 por copywriter do roster).
+
+### `roster-decisions.md`
+
+[`docs/architecture/roster-decisions.md`](./roster-decisions.md)
+
+Decisões de seleção do roster final + substituições NFR6 quando aplicáveis.
 - **Não** validados por `validate-structure.js` (que é específico para agent files)
 - Linguagem: PT-BR nativo (NFR9), terminologia técnica em inglês preservada (`headline`, `lead`, `USP`)
 
