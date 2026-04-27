@@ -1,0 +1,69 @@
+storyId: "5.7"
+storyTitle: "Uninstall script + tests — Epic 5 final"
+epic: "5"
+verdict: PASS
+verdict_at: 2026-04-27
+reviewer: "@qa (Quinn)"
+
+decision:
+  status: PASS
+  rationale: |
+    uninstall-copy-squad.sh criado (~7KB, chmod +x, bash 3.2 compat).
+
+    Hardcoded list: 15 copywriter agents + 3 support agents + .claude/commands/copy.md + 15 research dirs.
+
+    NÃO toca em:
+    - Outros agents customizados em .claude/agents/
+    - settings.json / settings.local.json
+
+    Features:
+    - Detecção automática (exit 2 se squad não detectado)
+    - Plano impresso antes de executar
+    - Confirmação interativa sem --force
+    - --force skipa confirmação
+    - --dry-run não modifica filesystem
+    - Backup automático em .claude.uninstall-backup-{timestamp}/ com _MANIFEST.txt
+    - Relatório final com contagem + backup path + comando rollback
+
+    BATS tests 8 cases (PRD AC13 cobertura completa a-h):
+    ✅ (a) clean uninstall com squad instalado
+    ✅ (b) --dry-run não modifica filesystem
+    ✅ (c) --force skipa confirmação
+    ✅ (d) path inexistente exit 1
+    ✅ (e) projeto sem squad exit 2
+    ✅ (f) backup criado antes de remoção
+    ✅ (g) outros agentes do user permanecem intactos (CRÍTICO)
+    ✅ (h) --help retorna ajuda
+
+    Local run BATS: 18/18 PASS (10 install + 8 uninstall).
+
+    13/13 ACs PASS local.
+
+    🎯🎯🎯 EPIC 5 COMPLETE 7/7 stories.
+
+quality_checks:
+  code_review: "PASS — bash idiomático, hardcoded list segura, _MANIFEST.txt included"
+  tests: "PASS — 8 BATS cases + integração com install.bats (18/18 total)"
+  acceptance_criteria: "13/13 PASS local"
+  no_regressions: "PASS — install.bats 10/10 ainda passa"
+  performance: "PASS"
+  security: "PASS — hardcoded list previne accidental removal de outros files; backup automático"
+  documentation: "PASS — help text + manifest + relatório final"
+
+epic_5_completion_milestone:
+  description: "🎯🎯🎯 Epic 5 complete — 7/7 stories"
+  total_stories: "7/7"
+  artifacts:
+    - "5.1: install-copy-squad.sh core"
+    - "5.2: install flags --force/--user/--dry-run/--help"
+    - "5.3: BATS test suite (10 install cases) + CI integration"
+    - "5.4: CLAUDE.md (1.026 words)"
+    - "5.5: COPY-SQUAD-README.md (2.250 words) + symlink README.md"
+    - "5.6: CHANGELOG.md + e2e-simulation.md + LICENSE (MIT)"
+    - "5.7: uninstall-copy-squad.sh + BATS (8 uninstall cases)"
+  total_bats_tests: "18/18 PASS (10 install + 8 uninstall)"
+  ci_jobs: 5  # structure + density + research-format + encoding + bats-install-tests
+
+issues: []
+approved_by: "@qa (Quinn)"
+approved_at: 2026-04-27
