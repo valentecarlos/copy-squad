@@ -205,4 +205,101 @@
 
 ---
 
-<!-- Próximas seções: Carlton/Makepeace/Collier (Story 2.3), etc. -->
+## Carlton (Story 2.3)
+
+### Queries usadas
+
+1. `John Carlton copywriter Marketing Rebel One Legged Golfer Jay Abraham biography`
+2. `John Carlton "The Rant" Marketing Rebel "Simple Writing System" copywriting principles`
+
+### Fontes promissoras descartadas
+
+- **Amazon author page** — listing comercial sem narrativa biográfica útil
+- **Scribd PDF Freelance Course** — material de curso completo; preferíveis fontes editoriais com síntese curada
+
+### Fontes finais citadas
+
+- Copyblogger — John Carlton interview profile (carreira LA, círculo Halbert/Abraham/Kennedy)
+- Ray Edwards — Most Ripped-Off Copywriter Alive (análise de marca)
+- Marketing Rebel official site — biografia institucional + cursos
+- I Love Marketing podcast #35 — entrevista detalhada com Carlton
+- John Carlton's Blog (The RANT) — demonstração viva da voz
+- John Carlton Simple Writing System official page
+- Marketing Rebel Support — SWS FAQ
+- Jeremy Mac — 5 Copywriting Secrets from John Carlton
+- Marketing Rebel Club — One-Legged Golfer analysis e PDF
+- Jibril Yusuf (Medium) — análise visual da peça golf
+- Marketing Rebel Club — Learn Salesmanship From the Masters
+- Scribd — John Carlton Freelance Copywriting Course material
+
+### Data 2026-04-26
+
+---
+
+## Makepeace (Story 2.3)
+
+### Queries usadas
+
+1. `Clayton Makepeace copywriter Total Package Boardroom Phillips Agora financial copywriting biography`
+2. `Clayton Makepeace Method outcomes elicitation framework copywriting techniques`
+
+### Fontes promissoras descartadas
+
+- **The Gary Halbert Letter páginas** — material útil mas anedótico; preferíveis fontes editoriais estruturadas
+- **Amazon book listings** — descrições comerciais sem profundidade biográfica
+- **Warrior Forum thread** (Bencivenga vs Makepeace training) — discussão com qualidade variável; preferíveis análises curadas
+
+### Fontes finais citadas
+
+- The Copywriter Club podcast — Writing Financial Copy with Clayton Makepeace (entrevista detalhada)
+- AWAI — The Makepeace Method (descrição oficial do Method)
+- AWAI — 7-Figure Sales Copy in 7 Days or Less (programa de produção rápida)
+- Jeremy Mac — 5 Copywriting Tips from Clayton Makepeace
+- Strategicopy — 3 Master Copywriting Secrets From Makepeace
+- Cas Media Group — Secrets Of Writing For (análise de técnicas)
+- Scribd — ClaytonMakepeace Webinar PDF
+- Breakthrough Marketing Secrets — Clayton Makepeace Outline & Checklists
+- LOADCOURSE — Makepeace Method for Writing Million Dollar Sales (descrição programa)
+- The Gary Halbert Letter — Quick-Start Copywriting Course material
+- Scott Martin Direct Response Copywriter blog — clayton makepeace tag
+- Breakthrough Marketing Secrets — Becoming an Agora copywriter discussion
+- learn.thegaryhalbertletter.com — Lost Clayton Makepeace Recordings reference
+
+### Data 2026-04-26
+
+---
+
+## Collier (Story 2.3)
+
+### Queries usadas
+
+1. `Robert Collier Letter Book 1931 enter the conversation coat hangers sales letter biography`
+2. `Robert Collier "Secret of the Ages" P.F. Collier publishing biography death 1950 metaphysical`
+
+### Fontes promissoras descartadas
+
+- **PDF cópias do Letter Book** em sites genéricos — preferíveis Amazon/Goodreads/editoras oficiais
+- **Sites de sacred texts/hindu webites** com Secret of the Ages — preferíveis fontes editoriais ocidentais para biografia
+- **Internet Archive scans** — úteis para conteúdo, mas preferíveis editorias modernas para biografia
+
+### Fontes finais citadas
+
+- Wikipedia — Robert Collier (author) — biografia oficial 1885-1950
+- robertcollier.wwwhubs.com — biografia detalhada com foco em obras self-help
+- Profit Advisors — The Robert Collier Letter Book review (análise + biografia profissional)
+- Penguin Random House author page — biografia institucional via editora atual
+- Amazon — The Robert Collier Letter Book listing (descrição editorial)
+- Goodreads — Robert Collier Letter Book reviews
+- AbeBooks — Letter Book listing description
+- Apple Books — Letter Book overview
+- Scribd — Letter Book ebook overview
+- BN Publishing — Letter Book description
+- Internet Archive — The Secret of the Ages (referência ao livro metafísico)
+
+### Data 2026-04-26
+
+---
+
+<!-- Próximas seções: Lote brand (Stories 2.4/2.5) -->
+
+> **🎯 EPIC 2 progresso pós-Story 2.3:** **3/5 stories — vertical Direct Response 100% completo (10/10 copywriters: Halbert + Schwartz/Hopkins/Caples + Sugarman/Kennedy/Bencivenga + Carlton/Makepeace/Collier).** Próximas: 2.4 (Ogilvy/Bernbach/Burnett — brand) e 2.5 (Abbott/Bird ou substitutos pré-aprovados — brand completion + substitution gate).
